@@ -1,486 +1,586 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ghassan | Cybersecurity Portfolio</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-
-<!-- Font Awesome for icons -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
-<style>
-  :root {
-    --color-bg-light: #f4f4f9;
-    --color-bg-dark: #0e1117;
-    --color-primary: #58a6ff;
-    --color-text-light: #2e2e3e;
-    --color-text-dark: #f5f5f5;
-    --color-accent: #79c0ff;
-  }
-
-  /* Dark mode by default */
-  .profile-pic {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 3px solid var(--color-primary);
-  object-fit: cover;
-  margin-right: 1rem;
-}
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-header h1 {
-  flex-grow: 1;
-}
-
-  .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-  gap: 1.5rem;
-}
-.skill-card {
-  background-color: #161b22;
-  padding: 1rem 1.25rem;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgb(88 166 255 / 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
-  text-align: center;
-}
-.skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px rgb(88 166 255 / 0.6);
-}
-body.light .skill-card {
-  background-color: #e9eef7;
-  box-shadow: 0 0 8px rgb(88 166 255 / 0.15);
-}
-.skill-icon {
-  font-size: 2rem;
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
-}
-body.light .skill-icon {
-  color: #2563eb;
-}
-.skill-card h3 {
-  margin: 0.3rem 0;
-  font-weight: 600;
-  color: var(--color-primary);
-}
-body.light .skill-card h3 {
-  color: #2563eb;
-}
-.skill-card p {
-  font-size: 0.9rem;
-  color: #c0c4ce;
-  margin: 0;
-}
-body.light .skill-card p {
-  color: #444d6e;
-}
-
-  
-  
-  body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-dark);
-    scroll-behavior: smooth;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  body.light {
-    background-color: var(--color-bg-light);
-    color: var(--color-text-light);
-  }
-
-  header {
-    position: sticky;
-    top: 0;
-    background-color: var(--color-bg-dark);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    z-index: 999;
-    border-bottom: 1px solid #222;
-    transition: background-color 0.3s ease;
-  }
-  body.light header {
-    background-color: var(--color-bg-light);
-    border-bottom: 1px solid #ccc;
-  }
-
-  header h1 {
-    margin: 0;
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: var(--color-primary);
-    cursor: default;
-  }
-
-  nav a {
-    color: var(--color-text-dark);
-    margin-left: 1.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    position: relative;
-    transition: color 0.2s ease;
-  }
-  body.light nav a {
-    color: var(--color-text-light);
-  }
-  nav a:hover,
-  nav a.active {
-    color: var(--color-primary);
-  }
-  nav a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background-color: var(--color-primary);
-    border-radius: 2px;
-  }
-
-  .toggle-theme-btn {
-    background: none;
-    border: none;
-    color: var(--color-primary);
-    font-size: 1.25rem;
-    cursor: pointer;
-    transition: color 0.2s ease;
-  }
-  .toggle-theme-btn:hover {
-    color: var(--color-accent);
-  }
-
-  main {
-    max-width: 900px;
-    margin: 3rem auto 5rem;
-    padding: 0 1rem;
-  }
-
-  section {
-    margin-bottom: 4rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  h2 {
-    color: var(--color-primary);
-    font-weight: 600;
-    border-bottom: 3px solid var(--color-primary);
-    padding-bottom: 0.3rem;
-    margin-bottom: 1rem;
-  }
-
-  p, ul {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-top: 0;
-  }
-
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  ul li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  ul li::before {
-    content: "\f058";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    color: var(--color-primary);
-  }
-
-  a {
-    color: var(--color-primary);
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-
-  .footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #777;
-    margin-top: 3rem;
-    user-select: none;
-  }
-
-  .cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-  gap: 1.5rem;
-}
-
-.cert-card {
-  background-color: #161b22;
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 0 8px rgb(88 166 255 / 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
-}
-
-.cert-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px rgb(88 166 255 / 0.6);
-}
-
-body.light .cert-card {
-  background-color: #e9eef7;
-  box-shadow: 0 0 8px rgb(88 166 255 / 0.15);
-}
-
-.cert-card img {
-  max-width: 80px;
-  margin-bottom: 0.75rem;
-  object-fit: contain;
-}
-
-.cert-card h3 {
-  color: var(--color-primary);
-  margin: 0.25rem 0;
-  font-weight: 600;
-}
-
-body.light .cert-card h3 {
-  color: #2563eb;
-}
-
-.cert-card p {
-  color: #c0c4ce;
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-body.light .cert-card p {
-  color: #444d6e;
-}
-
-.cert-card.in-progress p {
-  font-style: italic;
-  color: #f0a500;
-}
-
-  /* Responsive Nav */
-  @media (max-width: 600px) {
-    nav a {
-      margin-left: 1rem;
-      font-size: 0.9rem;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ghassan Alnomani | Cybersecurity Portfolio</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --color-primary: #3b82f6;
+      --bg-dark: #0f172a;
+      --text-light: #f1f5f9;
+      --card-bg: #1e293b;
+      --border-radius: 16px;
     }
-  }
-</style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin-bottom: 0;
+    }
+
+    .contact p {
+      margin: 0.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+      position: relative;
+      color: var(--color-primary);
+    }
+
+    h2 span.underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      animation: underlineGrow 1s forwards;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #d1d5db;
+    }
+
+    /* About Me section styles */
+    #about .about-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: #17223b;
+      border-radius: var(--border-radius);
+      padding: 1.75rem;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+      align-items: center;
+    }
+
+    #about .about-text {
+      flex: 1 1 280px;
+      min-width: 280px;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    #about .about-text strong {
+      color: var(--color-primary);
+    }
+
+    #about .about-text a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    #about .about-text a:hover {
+      background-color: #2563eb;
+    }
+
+    #about .about-img {
+      flex: 1 1 280px;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #about .about-img img {
+      border-radius: 16px;
+      max-width: 100%;
+      box-shadow: 0 0 15px var(--color-primary);
+      max-height: 280px;
+      object-fit: cover;
+    }
+
+    /* Cards grid */
+    .skills-grid,
+    .cert-grid,
+    .ctf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* General card style */
+    .card {
+      background: linear-gradient(145deg, #1e293b, #16243d);
+      border-radius: var(--border-radius);
+      padding: 1.25rem 1rem;
+      box-shadow:
+        4px 4px 8px rgba(0, 0, 0, 0.5),
+        -4px -4px 8px rgba(59, 130, 246, 0.2);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      text-align: center;
+      color: #cbd5e1;
+      cursor: default;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow:
+        8px 8px 16px rgba(0, 0, 0, 0.7),
+        -8px -8px 16px rgba(59, 130, 246, 0.3);
+    }
+
+    .card img {
+      max-width: 75px;
+      margin-bottom: 0.75rem;
+      filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.7));
+    }
+
+    .card h3 {
+      margin: 0.75rem 0 0.5rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #a5b4fc;
+    }
+
+    /* Skill icons style */
+    .skills-grid .card i.fa-solid {
+      font-size: 2rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Certification card hover-expand effect */
+    .cert-card {
+      position: relative;
+      overflow: hidden;
+      max-height: 160px;
+      cursor: pointer;
+      transition: max-height 0.5s ease, box-shadow 0.35s ease;
+    }
+
+    .cert-card:hover {
+      max-height: 320px;
+      box-shadow:
+        8px 8px 16px rgba(0, 0, 0, 0.7),
+        -8px -8px 16px rgba(59, 130, 246, 0.3);
+    }
+
+    .cert-card .details {
+      opacity: 0;
+      max-height: 0;
+      margin-top: 0;
+      transition: opacity 0.5s ease, max-height 0.5s ease, margin-top 0.5s ease;
+      color: #a5b4fc;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      text-align: left;
+    }
+
+    .cert-card:hover .details {
+      opacity: 1;
+      max-height: 200px;
+      margin-top: 0.75rem;
+    }
+
+    /* CTF & Labs enhanced styles */
+    .ctf-card ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 0.75rem;
+      max-height: 150px;
+      overflow-y: auto;
+      border-top: 1px solid #334155;
+      text-align: left;
+    }
+
+    .ctf-card ul li {
+      margin: 0.4rem 0;
+    }
+
+    .ctf-card ul li a {
+      color: #a5b4fc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .ctf-card ul li a:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    /* Scrollbar for webkit browsers */
+    .ctf-card ul::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .ctf-card ul::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .ctf-card ul::-webkit-scrollbar-thumb {
+      background-color: var(--color-primary);
+      border-radius: 10px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px solid #334155;
+      margin-top: 3rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .skills-grid,
+      .cert-grid,
+      .ctf-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+
+      .cert-card {
+        max-height: 180px;
+      }
+
+      .cert-card:hover {
+        max-height: 360px;
+      }
+
+      #about .about-container {
+        flex-direction: column;
+      }
+
+      #about .about-text,
+      #about .about-img {
+        min-width: 100%;
+        flex: none;
+      }
+
+      #about .about-img img {
+        max-height: 220px;
+      }
+    }
+
+    /* Underline animation */
+    @keyframes underlineGrow {
+      from {
+        width: 0;
+      }
+      to {
+        width: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <img src="profile.jfif" alt="Ghassan Alnomani" class="profile-pic" />
-  <h1>Ghassan</h1>
-  <nav>
-    <a href="#about" class="nav-link active">About</a>
-    <a href="#skills" class="nav-link">Skills</a>
-    <a href="#certifications" class="nav-link">Certifications</a>
-    <a href="#ctf-labs" class="nav-link">CTF & Labs</a>
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
-  <button class="toggle-theme-btn" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
-    <i class="fa-solid fa-moon"></i>
-  </button>
-</header>
+  <header>
+    <h1>Ghassan Alnomani</h1>
+    <div class="contact">
+      <p><i class="fa-solid fa-envelope"></i> your-email@example.com</p>
+      <p><i class="fa-brands fa-linkedin"></i> linkedin.com/in/yourprofile</p>
+      <p><i class="fa-brands fa-github"></i> github.com/ghassanalnomani</p>
+    </div>
+  </header>
 
-<main>
-  <section id="about" class="visible">
-    <h2>About Me</h2>
-    <p>
-      Ambitious and detail-oriented Cybersecurity enthusiast with a strong commitment to delivering high-quality solutions and services that protect company environments and support client satisfaction. Proficient in using a variety of security tools and software to strengthen an organization’s security posture. Known for strong analytical thinking, problem-solving skills, and a passion for continuous learning in the cybersecurity field.
-    </p>
-    <p>
-      In my current role as an IT Professional, I am responsible for the day-to-day operations of critical IT infrastructure and systems. I ensure smooth technology operations, manage site-level incidents, and provide ongoing support to maintain system reliability and performance. I play a key role in incident management, ensuring prompt resolution and effective follow-through.
-    </p>
-    <p>
-      My goal is to transition into a cybersecurity-focused role, particularly within a Security Operations Center (SOC) or a cyber defense team. With a solid foundation in IT, hands-on experience, and a growing set of cybersecurity credentials, I’m eager to take on new challenges, contribute to a forward-thinking team, and help strengthen organizational resilience.
-    </p>
-    <p>
-      I hold a Bachelor's degree in Computer Science (Second Class Honors) and several industry-recognized cybersecurity certifications.
-    </p>
-    <p>
-      Cybersecurity isn't just a career path for me, it's a mission. I'm ready to take the next step, contribute to a forward-thinking security team, and keep evolving as a professional in one of today’s most critical industries.
-    </p>
+  <section id="about">
+    <h2>
+      About Me
+      <span class="underline"></span>
+    </h2>
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          <strong>Ambitious</strong> and <strong>detail-oriented</strong>
+          Cybersecurity enthusiast dedicated to delivering high-impact solutions that protect
+          company environments and support client success.
+        </p>
+
+        <p>
+          Currently an IT Professional managing critical infrastructure, incident response,
+          and operational excellence with a passion to transition into Security Operations Center roles.
+        </p>
+
+        <p>
+          Equipped with solid IT fundamentals, hands-on experience, and growing cybersecurity
+          credentials, I am eager to tackle challenges, contribute to forward-thinking teams,
+          and enhance organizational resilience.
+        </p>
+
+        <p>
+          <strong>Cybersecurity</strong> is not just a career for me — it’s a mission to
+          safeguard and innovate in one of today’s most vital fields.
+        </p>
+
+        <a href="your-resume.pdf" target="_blank" rel="noopener noreferrer"
+          >Download Resume</a
+        >
+      </div>
+      <div class="about-img">
+        <img src="images/profile.jpg" alt="Ghassan Alnomani" />
+      </div>
+    </div>
   </section>
 
-  <section id="skills">
-  <h2>Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <i class="fa-solid fa-shield-halved skill-icon"></i>
-      <h3>SIEM Tools</h3>
-      <p>Splunk, ELK Stack (in progress)</p>
-    </div>
-    <div class="skill-card">
-      <i class="fa-solid fa-file-lines skill-icon"></i>
-      <h3>Log Analysis</h3>
-      <p>Windows Event Logs, Sysmon</p>
-    </div>
-    <div class="skill-card">
-      <i class="fa-solid fa-user-shield skill-icon"></i>
-      <h3>Threat Detection</h3>
-      <p>MITRE ATT&CK, TryHackMe</p>
-    </div>
-    <div class="skill-card">
-      <i class="fa-solid fa-network-wired skill-icon"></i>
-      <h3>Networking</h3>
-      <p>Wireshark, TCP/IP, OSI Model</p>
-    </div>
-    <div class="skill-card">
-      <i class="fa-solid fa-headset skill-icon"></i>
-      <h3>Incident Mgmt</h3>
-      <p>ServiceNow, Excel</p>
-    </div>
-  </div>
-</section>
-
-
   <section id="certifications">
-  <h2>Certifications</h2>
-  <div class="cert-grid">
-    <div class="cert-card">
-      <img src="images/Security+-jpg.jpg" alt="CompTIA Security+" />
-      <h3>CompTIA Security+</h3>
-      
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+      <div class="card cert-card">
+        <img src="images/securityplus.png" alt="CompTIA Security+" />
+        <h3>CompTIA Security+</h3>
+        <p class="status">Completed</p>
+        <p class="details">
+          Vendor: CompTIA<br />
+          Exam Code: SY0-601<br />
+          Validity: Lifetime<br />
+          Skills Covered: Network Security, Threat Management, Compliance
+        </p>
+      </div>
+      <div class="card cert-card">
+        <img src="images/btl1.png" alt="BTL1" />
+        <h3>Blue Team Level 1</h3>
+        <p class="status">Completed</p>
+        <p class="details">
+          Vendor: TryHackMe<br />
+          Focus: Defensive Security Fundamentals<br />
+          Labs: Log Analysis, Threat Hunting
+        </p>
+      </div>
+      <div class="card cert-card">
+        <img src="images/csa.png" alt="Certified SOC Analyst" />
+        <h3>Certified SOC Analyst</h3>
+        <p class="status">EC-Council</p>
+        <p class="details">
+          Vendor: EC-Council<br />
+          Focus: SOC Operations, Incident Handling<br />
+          Validity: 3 years
+        </p>
+      </div>
+      <div class="card cert-card">
+        <img src="images/ejpt.png" alt="eJPT" />
+        <h3>eJPT</h3>
+        <p class="status">In Progress</p>
+        <p class="details">
+          Vendor: eLearnSecurity<br />
+          Focus: Penetration Testing Fundamentals<br />
+          Expected Completion: 2025
+        </p>
+      </div>
     </div>
-    <div class="cert-card">
-      <img src="images/logo.png" alt="BTL1" />
-      <h3>BTL1</h3>
-      
-    </div>
-    <div class="cert-card">
-      <img src="images/ECC-CSA-07FE19KHD2E3.png" alt="Certified SOC Analyst" />
-      <h3>Certified SOC Analyst</h3>
-      <p>EC-Council</p>
-    </div>
-    <div class="cert-card in-progress">
-      <img src="https://ejpt.org/wp-content/uploads/2020/02/ejpt-logo-color.png" alt="eJPT" />
-      <h3>eJPT</h3>
-      <p>In Progress</p>
-    </div>
-  </div>
-</section>
+  </section>
 
+  <section id="ctf">
+    <h2>CTF & Labs</h2>
+    <div class="ctf-grid">
+      <div class="card ctf-card">
+        <i class="fa-solid fa-terminal"></i>
+        <h3>TryHackMe</h3>
+        <p>Completed 20+ Rooms - SOC & Threat Hunting Focus</p>
+        <ul>
+          <li>
+            <a
+              href="https://tryhackme.com/room/blueteamintro"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Blue Team Introduction</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://tryhackme.com/room/loganalysis"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Log Analysis</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://tryhackme.com/room/threathunting"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Threat Hunting</a
+            >
+          </li>
+          <!-- Add more as needed -->
+        </ul>
+      </div>
 
-  <section id="ctf-labs">
-    <h2>CTF & Labs Completed</h2>
-    <ul>
-      <li><strong>TryHackMe:</strong> SOC Level 1, Intro to Blue Team, Defensive Security</li>
-      <li><strong>Hack The Box:</strong> Starting Point, Basic Pentesting Challenges</li>
-      <li><strong>OverTheWire:</strong> Bandit, Narnia</li>
-      <li><strong>Other Platforms:</strong> Add any relevant labs or CTFs you completed</li>
-    </ul>
-    <p><em>Details and write-ups will be added soon.</em></p>
+      <div class="card ctf-card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Hack The Box</h3>
+        <p>Beginner Machines - Blue Team Badge in progress</p>
+        <ul>
+          <li>
+            <a
+              href="https://app.hackthebox.com/machines/legacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Legacy</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://app.hackthebox.com/machines/basic"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Basic</a
+            >
+          </li>
+          <!-- Add more as needed -->
+        </ul>
+      </div>
+
+      <div class="card ctf-card">
+        <i class="fa-solid fa-book"></i>
+        <h3>CyberDefenders</h3>
+        <p>Completed Log Analysis challenges</p>
+        <ul>
+          <li>
+            <a
+              href="https://cyberdefenders.org/challenge1"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Challenge 1: Windows Logs</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://cyberdefenders.org/challenge2"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Challenge 2: Network Traffic</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <p>
-      I am currently working on several hands-on cybersecurity projects focused on log analysis, SIEM tools, and threat detection.
-      <br />
-      🔐 <em>Project details and write-ups will be added soon.</em>
+      Coming soon — working on SOC playbooks, threat detection labs, and
+      real-world incident response simulations.
     </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>SIEM Tools</h3>
+        <p>Splunk, ELK Stack</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-file-lines"></i>
+        <h3>Log Analysis</h3>
+        <p>Sysmon, Event Viewer</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-network-wired"></i>
+        <h3>Networking</h3>
+        <p>TCP/IP, OSI Model</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <h3>Threat Hunting</h3>
+        <p>MITRE ATT&CK, TryHackMe</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-headset"></i>
+        <h3>Incident Response</h3>
+        <p>ServiceNow, Escalations</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
     <p>
-      📧 Email: <a href="mailto:your.email@example.com">your.email@example.com</a> <br />
-      💼 <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a> <br />
-      🛠️ <a href="https://github.com/your-github" target="_blank" rel="noopener">GitHub</a> <br />
-      📄 <a href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+      📧 Email:
+      <a href="mailto:your-email@example.com" style="color: var(--color-primary);"
+        >your-email@example.com</a
+      >
     </p>
-  </section>
-</main>
-
-<footer class="footer">
-  &copy; 2025 Ghassan. All rights reserved.
-</footer>
-
-<script>
-  // Theme toggle
-  const themeToggleBtn = document.querySelector('.toggle-theme-btn');
-  const body = document.body;
-  const icon = themeToggleBtn.querySelector('i');
-
-  // Load theme from localStorage or default dark
-  if (localStorage.getItem('theme') === 'light') {
-    body.classList.add('light');
-    icon.classList.replace('fa-moon', 'fa-sun');
-  }
-
-  themeToggleBtn.addEventListener('click', () => {
-    body.classList.toggle('light');
-    if (body.classList.contains('light')) {
-      icon.classList.replace('fa-moon', 'fa-sun');
-      localStorage.setItem('theme', 'light');
-    } else {
-      icon.classList.replace('fa-sun', 'fa-moon');
-      localStorage.setItem('theme', 'dark');
-    }
-  });
-
-  // Scroll spy for nav links & fade-in sections
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('nav a');
-
-  function activateNavLink() {
-    let index = sections.length;
-
-    while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
-
-    navLinks.forEach(link => link.classList.remove('active'));
-    navLinks[index].classList.add('active');
-  }
-
-  function revealSections() {
-    sections.forEach(section => {
-      const top = section.getBoundingClientRect().top;
-      if (top < window.innerHeight * 0.8) {
-        section.classList.add('visible');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', () => {
-    activateNavLink();
-    revealSections();
-  });
-
-  // Initial reveal
-  revealSections();
-</script>
-</body>
-</html>
+    <p>
+      🔗 LinkedIn:
+      <a
+        href="https://linkedin.com/in/yourprofile"
+        style="color: var(--color-primary)"
+        >linkedin.com/in/yourprofile</a
+      >
+    </p>
+    <p>
+      🌐 GitHub:
+      <a
+        href="https://github.com/ghassanalnomani"
+        style="color: var(--color-primary)"
+        >github.com/ghass
