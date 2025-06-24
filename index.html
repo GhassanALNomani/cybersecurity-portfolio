@@ -1,105 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ghassan | Cybersecurity Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #0e1117;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #161b22;
-      padding: 1.5rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h2 {
-      color: #58a6ff;
-      margin-top: 2rem;
-    }
-    a {
-      color: #58a6ff;
-      text-decoration: none;
-    }
-    .footer {
-      text-align: center;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ghassan | Cybersecurity Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+<!-- Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<style>
+  :root {
+    --color-bg-light: #f4f4f9;
+    --color-bg-dark: #0e1117;
+    --color-primary: #58a6ff;
+    --color-text-light: #2e2e3e;
+    --color-text-dark: #f5f5f5;
+    --color-accent: #79c0ff;
+  }
+
+  /* Dark mode by default */
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  body.light {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-bg-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 999;
+    border-bottom: 1px solid #222;
+    transition: background-color 0.3s ease;
+  }
+  body.light header {
+    background-color: var(--color-bg-light);
+    border-bottom: 1px solid #ccc;
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    cursor: default;
+  }
+
+  nav a {
+    color: var(--color-text-dark);
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.2s ease;
+  }
+  body.light nav a {
+    color: var(--color-text-light);
+  }
+  nav a:hover,
+  nav a.active {
+    color: var(--color-primary);
+  }
+  nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+  }
+
+  .toggle-theme-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .toggle-theme-btn:hover {
+    color: var(--color-accent);
+  }
+
+  main {
+    max-width: 900px;
+    margin: 3rem auto 5rem;
+    padding: 0 1rem;
+  }
+
+  section {
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  h2 {
+    color: var(--color-primary);
+    font-weight: 600;
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  p, ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  ul li::before {
+    content: "\f058";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 3rem;
+    user-select: none;
+  }
+
+  /* Responsive Nav */
+  @media (max-width: 600px) {
+    nav a {
+      margin-left: 1rem;
       font-size: 0.9rem;
-      margin-top: 3rem;
-      color: #777;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Ghassan | Cybersecurity Portfolio</h1>
-    <p>Aspiring SOC Analyst | IT Professional | Cybersecurity Enthusiast</p>
-  </header>
+<header>
+  <h1>Ghassan</h1>
+  <nav>
+    <a href="#about" class="nav-link active">About</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#certifications" class="nav-link">Certifications</a>
+    <a href="#ctf-labs" class="nav-link">CTF & Labs</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+  <button class="toggle-theme-btn" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+</header>
 
-  <section id="about">
-  <h2>About Me</h2>
-  <p>
-    Ambitious and detail-oriented Cybersecurity enthusiast with a strong commitment to delivering high-quality solutions and services that protect company environments and support client satisfaction. Proficient in using a variety of security tools and software to strengthen an organization’s security posture. Known for strong analytical thinking, problem-solving skills, and a passion for continuous learning in the cybersecurity field.
-  </p>
-  <p>
-    In my current role as an IT Professional, I am responsible for the day-to-day operations of critical IT infrastructure and systems. I ensure smooth technology operations, manage site-level incidents, and provide ongoing support to maintain system reliability and performance. I play a key role in incident management, ensuring prompt resolution and effective follow-through.
-  </p>
-  <p>
-    My goal is to transition into a cybersecurity-focused role, particularly within a Security Operations Center (SOC) or a cyber defense team. With a solid foundation in IT, hands-on experience, and a growing set of cybersecurity credentials, I’m eager to take on new challenges, contribute to a forward-thinking team, and help strengthen organizational resilience.
-  </p>
-  <p>
-    I hold a Bachelor's degree in Computer Science (Second Class Honors) and several industry-recognized cybersecurity certifications.
-  </p>
-  <p>
-    Cybersecurity isn't just a career path for me, it's a mission. I'm ready to take the next step, contribute to a forward-thinking security team, and keep evolving as a professional in one of today’s most critical industries.
-  </p>
-</section>
-
+<main>
+  <section id="about" class="visible">
+    <h2>About Me</h2>
+    <p>
+      Ambitious and detail-oriented Cybersecurity enthusiast with a strong commitment to delivering high-quality solutions and services that protect company environments and support client satisfaction. Proficient in using a variety of security tools and software to strengthen an organization’s security posture. Known for strong analytical thinking, problem-solving skills, and a passion for continuous learning in the cybersecurity field.
+    </p>
+    <p>
+      In my current role as an IT Professional, I am responsible for the day-to-day operations of critical IT infrastructure and systems. I ensure smooth technology operations, manage site-level incidents, and provide ongoing support to maintain system reliability and performance. I play a key role in incident management, ensuring prompt resolution and effective follow-through.
+    </p>
+    <p>
+      My goal is to transition into a cybersecurity-focused role, particularly within a Security Operations Center (SOC) or a cyber defense team. With a solid foundation in IT, hands-on experience, and a growing set of cybersecurity credentials, I’m eager to take on new challenges, contribute to a forward-thinking team, and help strengthen organizational resilience.
+    </p>
+    <p>
+      I hold a Bachelor's degree in Computer Science (Second Class Honors) and several industry-recognized cybersecurity certifications.
+    </p>
+    <p>
+      Cybersecurity isn't just a career path for me, it's a mission. I'm ready to take the next step, contribute to a forward-thinking security team, and keep evolving as a professional in one of today’s most critical industries.
+    </p>
+  </section>
 
   <section id="skills">
-  <h2>Skills</h2>
-  <ul>
-    <li>SIEM Tools: Splunk, ELK Stack (in progress)</li>
-    <li>Log Analysis: Windows Event Logs, Sysmon</li>
-    <li>Threat Detection: MITRE ATT&CK, TryHackMe</li>
-    <li>Networking: Wireshark, TCP/IP, OSI Model</li>
-    <li>Incident Management & Ticketing: ServiceNow, Excel</li>
-  </ul>
-</section>
+    <h2>Skills</h2>
+    <ul>
+      <li>SIEM Tools: Splunk, ELK Stack (in progress)</li>
+      <li>Log Analysis: Windows Event Logs, Sysmon</li>
+      <li>Threat Detection: MITRE ATT&CK, TryHackMe</li>
+      <li>Networking: Wireshark, TCP/IP, OSI Model</li>
+      <li>Incident Management & Ticketing: ServiceNow, Excel</li>
+    </ul>
+  </section>
 
   <section id="certifications">
-  <h2>Certifications</h2>
-  <ul>
-    <li>CompTIA Security+ (in progress)</li>
-    <li>Microsoft SC-900</li>
-    <li>TryHackMe Badges</li>
-    <li>Other industry-relevant certs (add as needed)</li>
-  </ul>
-</section>
+    <h2>Certifications</h2>
+    <ul>
+      <li>CompTIA Security+ (in progress)</li>
+      <li>Microsoft SC-900</li>
+      <li>TryHackMe Badges</li>
+      <li>Other industry-relevant certs (add as needed)</li>
+    </ul>
+  </section>
 
   <section id="ctf-labs">
-  <h2>CTF & Labs Completed</h2>
-  <ul>
-    <li><strong>TryHackMe:</strong> SOC Level 1, Intro to Blue Team, Defensive Security</li>
-    <li><strong>Hack The Box:</strong> Starting Point, Basic Pentesting Challenges</li>
-    <li><strong>OverTheWire:</strong> Bandit, Narnia</li>
-    <li><strong>Other Platforms:</strong> Add any relevant labs or CTFs you completed</li>
-  </ul>
-  <p><em>Details and write-ups will be added soon.</em></p>
-</section>
-  
+    <h2>CTF & Labs Completed</h2>
+    <ul>
+      <li><strong>TryHackMe:</strong> SOC Level 1, Intro to Blue Team, Defensive Security</li>
+      <li><strong>Hack The Box:</strong> Starting Point, Basic Pentesting Challenges</li>
+      <li><strong>OverTheWire:</strong> Bandit, Narnia</li>
+      <li><strong>Other Platforms:</strong> Add any relevant labs or CTFs you completed</li>
+    </ul>
+    <p><em>Details and write-ups will be added soon.</em></p>
+  </section>
+
   <section id="projects">
     <h2>Projects</h2>
     <p>
@@ -112,15 +255,70 @@
   <section id="contact">
     <h2>Contact</h2>
     <p>
-      📧 Email: your.email@example.com <br />
-      💼 <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a> <br />
-      🛠️ <a href="https://github.com/your-github" target="_blank">GitHub</a> <br />
-      📄 <a href="resume.pdf" target="_blank">Download Resume</a>
+      📧 Email: <a href="mailto:your.email@example.com">your.email@example.com</a> <br />
+      💼 <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a> <br />
+      🛠️ <a href="https://github.com/your-github" target="_blank" rel="noopener">GitHub</a> <br />
+      📄 <a href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
     </p>
   </section>
+</main>
 
-  <div class="footer">
-    <p>&copy; 2025 Ghassan. All rights reserved.</p>
-  </div>
+<footer class="footer">
+  &copy; 2025 Ghassan. All rights reserved.
+</footer>
+
+<script>
+  // Theme toggle
+  const themeToggleBtn = document.querySelector('.toggle-theme-btn');
+  const body = document.body;
+  const icon = themeToggleBtn.querySelector('i');
+
+  // Load theme from localStorage or default dark
+  if (localStorage.getItem('theme') === 'light') {
+    body.classList.add('light');
+    icon.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  themeToggleBtn.addEventListener('click', () => {
+    body.classList.toggle('light');
+    if (body.classList.contains('light')) {
+      icon.classList.replace('fa-moon', 'fa-sun');
+      localStorage.setItem('theme', 'light');
+    } else {
+      icon.classList.replace('fa-sun', 'fa-moon');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  // Scroll spy for nav links & fade-in sections
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('nav a');
+
+  function activateNavLink() {
+    let index = sections.length;
+
+    while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
+
+    navLinks.forEach(link => link.classList.remove('active'));
+    navLinks[index].classList.add('active');
+  }
+
+  function revealSections() {
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top < window.innerHeight * 0.8) {
+        section.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    activateNavLink();
+    revealSections();
+  });
+
+  // Initial reveal
+  revealSections();
+</script>
 </body>
 </html>
