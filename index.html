@@ -232,6 +232,63 @@ body.light .skill-card p {
     user-select: none;
   }
 
+  .cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 1.5rem;
+}
+
+.cert-card {
+  background-color: #161b22;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 0 8px rgb(88 166 255 / 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgb(88 166 255 / 0.6);
+}
+
+body.light .cert-card {
+  background-color: #e9eef7;
+  box-shadow: 0 0 8px rgb(88 166 255 / 0.15);
+}
+
+.cert-card img {
+  max-width: 80px;
+  margin-bottom: 0.75rem;
+  object-fit: contain;
+}
+
+.cert-card h3 {
+  color: var(--color-primary);
+  margin: 0.25rem 0;
+  font-weight: 600;
+}
+
+body.light .cert-card h3 {
+  color: #2563eb;
+}
+
+.cert-card p {
+  color: #c0c4ce;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+body.light .cert-card p {
+  color: #444d6e;
+}
+
+.cert-card.in-progress p {
+  font-style: italic;
+  color: #f0a500;
+}
+
   /* Responsive Nav */
   @media (max-width: 600px) {
     nav a {
@@ -311,14 +368,31 @@ body.light .skill-card p {
 
 
   <section id="certifications">
-    <h2>Certifications</h2>
-    <ul>
-      <li>CompTIA Security+ (in progress)</li>
-      <li>Microsoft SC-900</li>
-      <li>TryHackMe Badges</li>
-      <li>Other industry-relevant certs (add as needed)</li>
-    </ul>
-  </section>
+  <h2>Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <img src="https://raw.githubusercontent.com/goldbergyoni/nodebestpractices/master/media/compTIA-Security-Plus.png" alt="CompTIA Security+" />
+      <h3>CompTIA Security+</h3>
+      <p>Completed</p>
+    </div>
+    <div class="cert-card">
+      <img src="https://yourdomain.com/path-to-btl1-logo.png" alt="BTL1" />
+      <h3>BTL1</h3>
+      <p>Completed</p>
+    </div>
+    <div class="cert-card">
+      <img src="https://www.eccouncil.org/wp-content/uploads/2018/06/certified-soc-analyst.png" alt="Certified SOC Analyst" />
+      <h3>Certified SOC Analyst</h3>
+      <p>EC-Council</p>
+    </div>
+    <div class="cert-card in-progress">
+      <img src="https://ejpt.org/wp-content/uploads/2020/02/ejpt-logo-color.png" alt="eJPT" />
+      <h3>eJPT</h3>
+      <p>In Progress</p>
+    </div>
+  </div>
+</section>
+
 
   <section id="ctf-labs">
     <h2>CTF & Labs Completed</h2>
