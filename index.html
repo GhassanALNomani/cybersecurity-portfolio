@@ -25,6 +25,72 @@
   }
 
   /* Dark mode by default */
+  .profile-pic {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  object-fit: cover;
+  margin-right: 1rem;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header h1 {
+  flex-grow: 1;
+}
+
+  .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 1.5rem;
+}
+.skill-card {
+  background-color: #161b22;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgb(88 166 255 / 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  text-align: center;
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgb(88 166 255 / 0.6);
+}
+body.light .skill-card {
+  background-color: #e9eef7;
+  box-shadow: 0 0 8px rgb(88 166 255 / 0.15);
+}
+.skill-icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+body.light .skill-icon {
+  color: #2563eb;
+}
+.skill-card h3 {
+  margin: 0.3rem 0;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+body.light .skill-card h3 {
+  color: #2563eb;
+}
+.skill-card p {
+  font-size: 0.9rem;
+  color: #c0c4ce;
+  margin: 0;
+}
+body.light .skill-card p {
+  color: #444d6e;
+}
+
+  
+  
   body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -177,6 +243,7 @@
 </head>
 <body>
 <header>
+  <img src="profile.jfif" alt="Ghassan Alnomani" class="profile-pic" />
   <h1>Ghassan</h1>
   <nav>
     <a href="#about" class="nav-link active">About</a>
@@ -212,15 +279,36 @@
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>SIEM Tools: Splunk, ELK Stack (in progress)</li>
-      <li>Log Analysis: Windows Event Logs, Sysmon</li>
-      <li>Threat Detection: MITRE ATT&CK, TryHackMe</li>
-      <li>Networking: Wireshark, TCP/IP, OSI Model</li>
-      <li>Incident Management & Ticketing: ServiceNow, Excel</li>
-    </ul>
-  </section>
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <i class="fa-solid fa-shield-halved skill-icon"></i>
+      <h3>SIEM Tools</h3>
+      <p>Splunk, ELK Stack (in progress)</p>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-file-lines skill-icon"></i>
+      <h3>Log Analysis</h3>
+      <p>Windows Event Logs, Sysmon</p>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-user-shield skill-icon"></i>
+      <h3>Threat Detection</h3>
+      <p>MITRE ATT&CK, TryHackMe</p>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-network-wired skill-icon"></i>
+      <h3>Networking</h3>
+      <p>Wireshark, TCP/IP, OSI Model</p>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-headset skill-icon"></i>
+      <h3>Incident Mgmt</h3>
+      <p>ServiceNow, Excel</p>
+    </div>
+  </div>
+</section>
+
 
   <section id="certifications">
     <h2>Certifications</h2>
