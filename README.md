@@ -1,25 +1,14 @@
-# Ghassan Alnumani – Cybersecurity Portfolio 🛡️
+# Ghassan Alnumani – Cybersecurity Portfolio
 
-## 🏆 Achievements
+## Achievements
+Certified in CompTIA Security+, Blue Team Level 1, EC-Council CSA, eJPT, and Cisco CCNA.
 
-### Certifications
-- CompTIA Security+  
-- Blue Team Level 1  
-- EC-Council Certified SOC Analyst  
-- eLearnSecurity Junior Penetration Tester (eJPT)  
-- Cisco CCNA  
+## Projects
+Working on hands-on SOC projects including a Windows Domain environment with Splunk. Please find details here (https://github.com/GhassanALNomani/SOC-Splunk-Project)
 
-### Labs & CTFs
-- [Network Forensics Module Investigation – CyberDefenders](https://cyberdefenders.org/online-labs/achievements/GhassanALNumani/network-forensics-module-investigation/)  
-- [WebStrike – CyberDefenders](https://cyberdefenders.org/online-labs/achievements/GhassanALNomani/webstrike/)  
-- [PoisonedCredentials – CyberDefenders](https://cyberdefenders.org/online-labs/achievements/GhassanALNomani/poisonedcredentials/)  
+## Labs & CTFs
+Achieved/completed more than 10 investigations across CyberDefenders and Blue Team Labs.
 
 ---
 
-For a full portfolio and projects, visit:  
-[https://ghassanalnomani.github.io/cybersecurity-portfolio/](https://ghassanalnomani.github.io/cybersecurity-portfolio/)
-
----
-
-Connect with me:  
-[LinkedIn](https://linkedin.com/in/ghassan-alnomani) | [GitHub](https://github.com/ghassanalnomani)
+[Portfolio](https://ghassanalnomani.github.io/cybersecurity-portfolio/) | [LinkedIn](https://linkedin.com/in/ghassan-alnomani) | [GitHub](https://github.com/ghassanalnomani)
