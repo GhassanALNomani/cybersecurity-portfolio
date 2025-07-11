@@ -1,7 +1,7 @@
 
 # 🧪 Lab 01: Network Forensics 1
 
-**Platform:** [CyberDefenders - Network Forensics 1](https://cyberdefenders.org/blueteam-ctf-challenges/networkforensics1)  
+**Platform:** [CyberDefenders]  
 **Category:** Network Forensics  
 **Status:** ✅ Completed  
 **Date:** July 10, 2025  
