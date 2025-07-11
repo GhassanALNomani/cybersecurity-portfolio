@@ -1,6 +1,6 @@
 # 🧪 Lab: Network Forensics Module Investigation
 
-**Platform:** [CyberDefenders] 
+**Platform:** [CyberDefenders]   
 **Category:** Network Forensics  
 **Status:** ✅ Completed  
 **Date:** July 10, 2025 
