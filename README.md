@@ -1,4 +1,4 @@
-# Ghassan Alnumani – Cybersecurity Portfolio 🛡️
+# Ghassan AlNumani – Cybersecurity Portfolio 🛡️
 
 ## Achievements  
 **Certified in:**  
