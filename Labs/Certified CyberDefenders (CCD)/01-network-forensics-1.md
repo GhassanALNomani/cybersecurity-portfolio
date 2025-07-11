@@ -11,7 +11,7 @@
 
 ## 🔍 Objective
 
-Analyze a network trace captured across multiple systems to uncover attack details; determining the attack source, and dataa exfiltrationion.
+Analyze a network trace captured across multiple systems to uncover attack details; determining the attack source, and data exfiltrationion.
 
 ---
 
@@ -36,7 +36,7 @@ Analyze a network trace captured across multiple systems to uncover attack detai
 ---
 
 ## 🔗 Achievement Badge  
-[CyberDefenders – Network Forensics 1 Lab]([https://cyberdefenders.org/blueteam-ctf-challenges/networkforensics1](https://cyberdefenders.org/online-labs/achievements/GhassanALNumani/network-forensics-2/))
+[CyberDefenders – Network Forensics 1 Lab](https://cyberdefenders.org/online-labs/achievements/GhassanALNumani/network-forensics-2/)
 
 ---
 
