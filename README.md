@@ -19,8 +19,8 @@
 - Achieved/completed more than 10 investigations across Blue Team Labs.  
 🔗 [Portfolio](https://ghassanalnomani.github.io/cybersecurity-portfolio/)
 
-Achieved/completed CyberDefenders labs as part of my ongoing learning journey.  
-🔗 [Portfolio](https://ghassanalnomani.github.io/cybersecurity-portfolio/)
+- Achieved/completed CyberDefenders labs as part of my ongoing learning journey.  
+🔗 [Portfolio](https://ghassanalnomani.github.io/cybersecurity-portfolio/) | [Labs](https://github.com/GhassanALNomani/cybersecurity-portfolio/tree/master/Labs/Certified%20CyberDefenders%20(CCD))
 
 ---
 
