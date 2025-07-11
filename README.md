@@ -22,6 +22,10 @@
 - Achieved/completed CyberDefenders labs as part of my ongoing learning journey.  
 🔗 [Portfolio](https://ghassanalnomani.github.io/cybersecurity-portfolio/) | [Labs](https://github.com/GhassanALNomani/cybersecurity-portfolio/tree/master/Labs/Certified%20CyberDefenders%20(CCD))
 
+
+
+
+For complete details on my projects, labs, and CTF investigations, please visit my [portfolio website](https://ghassanalnomani.github.io/cybersecurity-portfolio/).
 ---
 
 ## Connect with me  
