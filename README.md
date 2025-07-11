@@ -1,12 +1,25 @@
-# Ghassan AlNumani – Cybersecurity Portfolio 🛡️
+# Ghassan Alnumani – Cybersecurity Portfolio 🛡️
 
-Welcome to my cybersecurity portfolio repository.
+## 🏆 Achievements
 
-For a full overview of my certifications, projects, and skills, please visit my [personal portfolio site](https://ghassanalnomani.github.io/cybersecurity-portfolio/).
+### Certifications
+- CompTIA Security+  
+- Blue Team Level 1  
+- EC-Council Certified SOC Analyst  
+- eLearnSecurity Junior Penetration Tester (eJPT)  
+- Cisco CCNA  
+
+### Labs & CTFs
+- [Network Forensics Module Investigation – CyberDefenders](https://cyberdefenders.org/online-labs/achievements/GhassanALNumani/network-forensics-module-investigation/)  
+- [WebStrike – CyberDefenders](https://cyberdefenders.org/online-labs/achievements/GhassanALNomani/webstrike/)  
+- [PoisonedCredentials – CyberDefenders](https://cyberdefenders.org/online-labs/achievements/GhassanALNomani/poisonedcredentials/)  
 
 ---
 
-## Connect with me
+For a full portfolio and projects, visit:  
+[https://ghassanalnomani.github.io/cybersecurity-portfolio/](https://ghassanalnomani.github.io/cybersecurity-portfolio/)
 
-- LinkedIn: [linkedin.com/in/ghassan-alnomani](https://linkedin.com/in/ghassan-alnomani)  
-- GitHub: [github.com/ghassanalnomani](https://github.com/ghassanalnomani)
+---
+
+Connect with me:  
+[LinkedIn](https://linkedin.com/in/ghassan-alnomani) | [GitHub](https://github.com/ghassanalnomani)
