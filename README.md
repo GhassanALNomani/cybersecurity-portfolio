@@ -11,7 +11,7 @@
 
 **In Progress:**  
 - ⏳ eLearnSecurity Blue team certificates
-- ⏳ Build Elastic (ELK) Stack SIEM and Threat Detection Tools and more!
+- ⏳ Project - Build Elastic (ELK) Stack SIEM and Threat Detection Tools and more!
   
 ## Projects  
 - Working on hands-on SOC projects including a Windows Domain environment with Splunk.  
