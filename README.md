@@ -6,10 +6,12 @@
 - ✅ Blue Team Level 1 (BTL1)
 - ✅ EC-Council Certified SOC Analyst (CSA)  
 - ✅ eLearnSecurity Junior Penetration Tester (eJPT)  
-- ✅ Cisco CCNA  
+- ✅ Cisco CCNA
+- ✅ Certified CyberDefender (CCD) 
 
 **In Progress:**  
-- ⏳ Certified CyberDefender (CCD)
+- ⏳ eLearnSecurity Blue team certificates
+- ⏳ Build Elastic (ELK) Stack SIEM and Threat Detection Tools and more!
   
 ## Projects  
 - Working on hands-on SOC projects including a Windows Domain environment with Splunk.  
