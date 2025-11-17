@@ -1,1006 +1,557 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ghassan AlNumani | Cybersecurity Portfolio</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <title>Ghassan — Cybersecurity Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --color-primary: #3b82f6;
-      --bg-dark: #0f172a;
-      --text-light: #f1f5f9;
-      --card-bg: #1e293b;
-      --border-radius: 16px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
-      line-height: 1.6;
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    h1 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-
-    .contact {
-      font-size: 0.95rem;
-      color: #cbd5e1;
-      margin-bottom: 0;
-    }
-
-    .contact p {
-      margin: 0.25rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-   .contact a {
-      color: var(--color-primary);
-      text-decoration: none;
-      font-weight: 600;
-      background-color: #1e293b;
-      padding: 6px 12px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-
-    .contact a:hover {
-      color: white;
-      background-color: var(--color-primary);
-      text-decoration: none;
-      box-shadow: 0 0 10px var(--color-primary);
-    }
-    
-    section {
-      margin-bottom: 3rem;
-    }
-
-    h2 {
-      font-size: 1.75rem;
-      border-bottom: 2px solid var(--color-primary);
-      padding-bottom: 0.25rem;
-      margin-bottom: 1rem;
-      position: relative;
-      color: var(--color-primary);
-    }
-
-    h2 span.underline {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: var(--color-primary);
-      border-radius: 2px;
-      animation: underlineGrow 1s forwards;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      color: #d1d5db;
-    }
-
-    /* About Me section styles */
-    #about .about-container {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      background: #17223b;
-      border-radius: var(--border-radius);
-      padding: 1.75rem;
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
-      align-items: center;
-    }
-
-    #about .about-text {
-      flex: 1 1 280px;
-      min-width: 280px;
-      color: #cbd5e1;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-
-    #about .about-text strong {
-      color: var(--color-primary);
-    }
-
-    #about .about-text a {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background: var(--color-primary);
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-
-    #about .about-text a:hover {
-      background-color: #2563eb;
-    }
-
-    #about .about-img {
-      flex: 1 1 280px;
-      min-width: 280px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #about .about-img img {
-      border-radius: 16px;
-      max-width: 100%;
-      box-shadow: 0 0 15px var(--color-primary);
-      max-height: 280px;
-      object-fit: cover;
-    }
-
-    /* Cards grid */
-    .skills-grid,
-    .cert-grid,
-    .ctf-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-    }
-
-    /* General card style */
-    .card {
-      background: linear-gradient(145deg, #1e293b, #16243d);
-      border-radius: var(--border-radius);
-      padding: 1.25rem 1rem;
-      box-shadow:
-        4px 4px 8px rgba(0, 0, 0, 0.5),
-        -4px -4px 8px rgba(59, 130, 246, 0.2);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      text-align: center;
-      color: #cbd5e1;
-      cursor: default;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow:
-        8px 8px 16px rgba(0, 0, 0, 0.7),
-        -8px -8px 16px rgba(59, 130, 246, 0.3);
-    }
-
-    .card img {
-      max-width: 75px;
-      margin-bottom: 0.75rem;
-      filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.7));
-    }
-
-    .card h3 {
-      margin: 0.75rem 0 0.5rem;
-      color: var(--color-primary);
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #a5b4fc;
-    }
-
-    /* Skill icons style */
-    .skills-grid .card i.fa-solid {
-      font-size: 2rem;
-      color: var(--color-primary);
-      margin-bottom: 0.5rem;
-    }
-
-    /* Certification card hover-expand effect */
-    .cert-card {
-      position: relative;
-      overflow: hidden;
-      max-height: 160px;
-      cursor: pointer;
-      transition: max-height 0.5s ease, box-shadow 0.35s ease;
-    }
-
-    .cert-card:hover {
-      max-height: 320px;
-      box-shadow:
-        8px 8px 16px rgba(0, 0, 0, 0.7),
-        -8px -8px 16px rgba(59, 130, 246, 0.3);
-    }
-
-    .cert-card .details {
-      opacity: 0;
-      max-height: 0;
-      margin-top: 0;
-      transition: opacity 0.5s ease, max-height 0.5s ease, margin-top 0.5s ease;
-      color: #a5b4fc;
-      font-size: 0.9rem;
-      line-height: 1.3;
-      text-align: left;
-    }
-
-    .cert-card:hover .details {
-      opacity: 1;
-      max-height: 200px;
-      margin-top: 0.75rem;
-    }
-
-    /* CTF & Labs enhanced styles */
-    .ctf-card ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin-top: 0.75rem;
-      max-height: 150px;
-      overflow-y: auto;
-      border-top: 1px solid #334155;
-      text-align: left;
-    }
-
-    .ctf-card ul li {
-      margin: 0.4rem 0;
-    }
-
-    .ctf-card ul li a {
-      color: #a5b4fc;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .ctf-card ul li a:hover {
-      color: var(--color-primary);
-      text-decoration: underline;
-    }
-
-    /* Scrollbar for webkit browsers */
-    .ctf-card ul::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .ctf-card ul::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .ctf-card ul::-webkit-scrollbar-thumb {
-      background-color: var(--color-primary);
-      border-radius: 10px;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 1rem 0;
-      color: #64748b;
-      font-size: 0.9rem;
-      border-top: 1px solid #334155;
-      margin-top: 3rem;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-
-      h1 {
-        font-size: 1.75rem;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      .skills-grid,
-      .cert-grid,
-      .ctf-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      }
-
-      .cert-card {
-        max-height: 180px;
-      }
-
-      .cert-card:hover {
-        max-height: 360px;
-      }
-
-      #about .about-container {
-        flex-direction: column;
-      }
-
-      #about .about-text,
-      #about .about-img {
-        min-width: 100%;
-        flex: none;
-      }
-
-      #about .about-img img {
-        max-height: 220px;
-      }
-    }
-
-    /* Underline animation */
-    @keyframes underlineGrow {
-      from {
-        width: 0;
-      }
-      to {
-        width: 60px;
-      }
-    }
+    /* Sand theme only */
+    :root{--bg:#faf7f2;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--primary:#f97316;--on-primary:#1b1006;}
+    body{background:var(--bg);font-family:'Inter',system-ui,Arial,sans-serif;}
+    .scroll-container{max-height:420px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+    .scroll-container::-webkit-scrollbar{width:6px;}
+    .scroll-container::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px;}
   </style>
 </head>
-<body>
-  <header>
-    <h1>Ghassan AlNumani</h1>
-    <div class="contact">
-      <p><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/ghassan-alnomani/" target="_blank">LinkedIn Profile</a></p>
-      <p><i class="fa-brands fa-github"></i> <a href="https://github.com/ghassanalnomani" target="_blank">GitHub Profile</a></p>
-    </div>
+<body class="antialiased">
+  <!-- Header -->
+  <header class="p-4 flex justify-between items-center max-w-7xl mx-auto">
+    <h1 class="text-xl font-bold" style="color:var(--text)">Ghassan — Cybersecurity Portfolio</h1>
+    <nav class="flex flex-wrap gap-2 text-sm">
+      <a href="#achievements" class="px-3 py-2 rounded-xl border" style="border-color:var(--border);color:var(--text);background:var(--card)">Achievements</a>
+      <a href="#labs" class="px-3 py-2 rounded-xl border" style="border-color:var(--border);color:var(--text);background:var(--card)">CTFs & Labs</a>
+      <a href="#projects" class="px-3 py-2 rounded-xl border" style="border-color:var(--border);color:var(--text);background:var(--card)">Projects</a>
+      <a href="#certifications" class="px-3 py-2 rounded-xl border" style="border-color:var(--border);color:var(--text);background:var(--card)">Certifications</a>
+      <a href="#skills" class="px-3 py-2 rounded-xl border" style="border-color:var(--border);color:var(--text);background:var(--card)">Skills</a>
+      <a href="#volunteer" class="px-3 py-2 rounded-xl border" style="border-color:var(--border);color:var(--text);background:var(--card)">Volunteer</a>
+      <a href="#contact" class="px-3 py-2 rounded-xl border" style="border-color:var(--border);color:var(--text);background:var(--card)">Contact</a>
+    </nav>
   </header>
 
-  <section id="about">
-    <h2>
-      About Me
-      <span class="underline"></span>
-    </h2>
-    <div class="about-container">
-      <div class="about-text">
-        <p>
-          <strong>Ambitious</strong> and <strong>detail-oriented</strong>
-          Cybersecurity enthusiast dedicated to delivering high-impact solutions that protect
-          company environments and support client success.
+  <!-- Hero (picture + story + CTA buttons) -->
+  <section id="hero" class="max-w-7xl mx-auto p-6">
+    <div class="grid md:grid-cols-3 gap-6 items-center">
+      <div class="md:col-span-2">
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight" style="color:var(--text)">Hi, I'm Ghassan — SOC & OT Cybersecurity Enthusiast.</h1>
+        <p class="mt-4 text-base" style="color:var(--muted)">
+          3+ years in IT; actively building a SOC skill set: detection engineering, log analysis, and incident response in industrial environments.
+          I enjoy turning noisy telemetry into clear, actionable stories.
         </p>
-
-        <p>
-          In my current role as an IT Professional, I am responsible for the day-to-day operations of critical IT infrastructure and systems. I ensure smooth technology operations, manage site-level incidents, and provide ongoing support to maintain system reliability and performance. I play a key role in incident management, ensuring prompt resolution and effective follow-through.
-        </p>
-
-        <p>
-          My goal is to transition into a cybersecurity-focused role, particularly within a Security Operations Center (SOC) or a cyber defense team. With a solid foundation in IT, hands-on experience, and a growing set of cybersecurity credentials, I’m eager to take on new challenges, contribute to a forward-thinking team, and help strengthen organizational resilience.
-        </p>
-
-        <p>
-          <strong>Cybersecurity</strong> is not just a career for me — it’s a mission and lifestyle for me to
-          safeguard and innovate in one of today’s most vital fields and continue growing in the field.
-        </p>
-<!--
-        <a href="your-resume.pdf" target="_blank" rel="noopener noreferrer"
-          >Download Resume</a
-        >
-  -->
+        <div class="mt-4 rounded-2xl p-4 border" style="background:var(--card);border-color:var(--border)">
+          <h3 class="font-semibold text-sm" style="color:var(--text)">My Story</h3>
+          <p class="text-sm mt-1" style="color:var(--muted)">
+            From service specialist to blue-team practitioner: I design detections, write playbooks, and run IR drills.
+            This portfolio highlights projects, labs, and achievements that map to real SOC workflows, especially in OT/ICS environments.
+          </p>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#achievements" class="px-4 py-2 rounded-xl font-medium shadow-sm" style="background:var(--primary);color:var(--on-primary)">View Achievements</a>
+          <a href="#labs" class="px-4 py-2 rounded-xl font-medium shadow-sm border" style="background:var(--card);color:var(--text);border-color:var(--border)">Browse CTFs & Labs</a>
+          <a href="#certifications" class="px-4 py-2 rounded-xl font-medium shadow-sm border" style="background:var(--card);color:var(--text);border-color:var(--border)">See Certifications</a>
+          <a href="#skills" class="px-4 py-2 rounded-xl font-medium shadow-sm border" style="background:var(--card);color:var(--text);border-color:var(--border)">Explore Skills</a>
+        </div>
       </div>
-      <div class="about-img">
-        <img src="images/picture.jfif" alt="Ghassan Alnomani" />
+      <div class="md:col-span-1">
+        <div class="aspect-square rounded-3xl overflow-hidden border shadow-sm" style="border-color:var(--border);background:var(--card)">
+          <img src="https://avatars.githubusercontent.com/u/137350056?s=400" alt="Ghassan portrait" class="w-full h-full object-cover"/>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="cert-grid">
-      <div class="card cert-card">
-        <img src="images/Security+-jpg.jpg" alt="CompTIA Security+" />
-        <h3>CompTIA Security+</h3>
-        <p class="status">Certified</p>
+  <!-- Achievements + Timeline (scrollable) -->
+  <section id="achievements" class="max-w-7xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-4" style="color:var(--text)">Achievements</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Achievements list -->
+      <div class="scroll-container space-y-6">
+        <div class="rounded-xl p-4 border" style="border-color:var(--border);background:var(--card)">
+          <div class="flex justify-between items-center">
+            <h3 class="font-semibold" style="color:var(--text)">Certified CyberDefender — Domains 1–4</h3>
+            <time class="text-xs" style="color:var(--muted)">Oct 2025</time>
+          </div>
+          <p class="text-sm" style="color:var(--muted)">Mapped detections to MITRE ATT&CK; shipped Sigma rules and IR notes.</p>
+          <div class="mt-3 flex gap-2">
+            <a href="https://ghassanalnomani.github.io/cybersecurity-portfolio/" target="_blank" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">View proof</a>
+            <a href="#" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">Add reference</a>
+          </div>
+        </div>
+
+        <div class="rounded-xl p-4 border" style="border-color:var(--border);background:var(--card)">
+          <div class="flex justify-between items-center">
+            <h3 class="font-semibold" style="color:var(--text)">Blue Team Labs Online — 10+ Labs</h3>
+            <time class="text-xs" style="color:var(--muted)">Sep 2025</time>
+          </div>
+          <p class="text-sm" style="color:var(--muted)">SOC triage, timeline building, alert tuning, and escalation practice.</p>
+          <div class="mt-3 flex gap-2">
+            <a href="https://blueteamlabs.online/achievement/share/84018/32" target="_blank" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">View proof</a>
+            <a href="#" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">Add reference</a>
+          </div>
+        </div>
+
+        <div class="rounded-xl p-4 border" style="border-color:var(--border);background:var(--card)">
+          <div class="flex justify-between items-center">
+            <h3 class="font-semibold" style="color:var(--text)">ICS/OT Security Planning</h3>
+            <time class="text-xs" style="color:var(--muted)">Aug 2025</time>
+          </div>
+          <p class="text-sm" style="color:var(--muted)">Purdue model segmentation draft; anomaly detection approach for OT.</p>
+          <div class="mt-3 flex gap-2">
+            <a href="#" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">View proof</a>
+            <a href="#" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">Add reference</a>
+          </div>
+        </div>
+
+        <div class="rounded-xl p-4 border" style="border-color:var(--border);background:var(--card)">
+          <div class="flex justify-between items-center">
+            <h3 class="font-semibold" style="color:var(--text)">TryHackMe Blue Path</h3>
+            <time class="text-xs" style="color:var(--muted)">Jul 2025</time>
+          </div>
+          <p class="text-sm" style="color:var(--muted)">Hands-on SOC labs in detection and triage.</p>
+          <div class="mt-3 flex gap-2">
+            <a href="#" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">View proof</a>
+            <a href="#" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">Add reference</a>
+          </div>
+        </div>
+
+        <div class="rounded-xl p-4 border" style="border-color:var(--border);background:var(--card)">
+          <div class="flex justify-between items-center">
+            <h3 class="font-semibold" style="color:var(--text)">SOC Automation Project</h3>
+            <time class="text-xs" style="color:var(--muted)">Jun 2025</time>
+          </div>
+          <p class="text-sm" style="color:var(--muted)">Built custom Splunk dashboards and automated alerting.</p>
+          <div class="mt-3 flex gap-2">
+            <a href="#" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">View proof</a>
+            <a href="#" class="px-3 py-1.5 rounded-lg text-sm border" style="border-color:var(--border);color:var(--text)">Add reference</a>
+          </div>
+        </div>
       </div>
-      <div class="card cert-card">
-        <img src="images/logo.png" alt="BTL1" />
-        <h3>Blue Team Level 1</h3>
-        <p class="status">Certified</p>
-      </div>
-      <div class="card cert-card">
-        <img src="images/ECC-CSA-07FE19KHD2E3.png" alt="Certified SOC Analyst" />
-        <h3>EC-Council Certified SOC Analyst</h3>
-        <p class="status">Certified</p>
-      </div>
-      <div class="card cert-card">
-        <img src="images/ejpt.jfif" alt="eJPT" />
-        <h3>eLearnSecurity Junior Penetration Tester eJPT</h3>
-        <p class="status">Certified</p>
-      </div>
-      <div class="card cert-card">
-        <img src="images/ccna.png" alt="CCNA" />
-        <h3>Cisco Certified CCNA</h3>
-        <p class="status">Certified</p>
-      </div>
-     <div class="card cert-card">
-        <img src="images/ccd.png" alt="CCNA" />
-        <h3>Certified CyberDefender (CCD)</h3>
-        <p class="status">Certified</p>
+
+      <!-- Timeline -->
+      <div class="scroll-container rounded-2xl p-6 border" style="border-color:var(--border);background:var(--card)">
+        <h4 class="font-semibold mb-4" style="color:var(--text)">Timeline</h4>
+        <ol class="relative border-s space-y-10" style="border-color:var(--border)">
+          <li class="ms-4">
+            <div class="absolute w-3 h-3 rounded-full -start-1.5 mt-1.5" style="background:var(--primary)"></div>
+            <time class="text-xs" style="color:var(--muted)">Oct 2025</time>
+            <h5 class="font-medium" style="color:var(--text)">CCD Domains 1–4 Completed</h5>
+          </li>
+          <li class="ms-4">
+            <div class="absolute w-3 h-3 rounded-full -start-1.5 mt-1.5" style="background:var(--primary)"></div>
+            <time class="text-xs" style="color:var(--muted)">Sep 2025</time>
+            <h5 class="font-medium" style="color:var(--text)">10 BTLO Labs</h5>
+          </li>
+          <li class="ms-4">
+            <div class="absolute w-3 h-3 rounded-full -start-1.5 mt-1.5" style="background:var(--primary)"></div>
+            <time class="text-xs" style="color:var(--muted)">Aug 2025</time>
+            <h5 class="font-medium" style="color:var(--text)">ICS/OT Security Plan</h5>
+          </li>
+          <li class="ms-4">
+            <div class="absolute w-3 h-3 rounded-full -start-1.5 mt-1.5" style="background:var(--primary)"></div>
+            <time class="text-xs" style="color:var(--muted)">Jul 2025</time>
+            <h5 class="font-medium" style="color:var(--text)">SOC Automation</h5>
+          </li>
+          <li class="ms-4">
+            <div class="absolute w-3 h-3 rounded-full -start-1.5 mt-1.5" style="background:var(--primary)"></div>
+            <time class="text-xs" style="color:var(--muted)">Jun 2025</time>
+            <h5 class="font-medium" style="color:var(--text)">TryHackMe Blue Path</h5>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <section id="ctf">
-    <h2>CTF & Labs</h2>
-    <div class="ctf-grid">
-      <div class="card ctf-card">
-        <i class="fa-solid fa-terminal"></i>
-        <h3>CyberDefenders</h3>
-        <p>Completed BlueYard Labs - SOC & Blue team focus</p>
-          <ul>
-             <li>
-                <a
-                  href="https://cyberdefenders.org/online-labs/achievements/GhassanALNumani/network-forensics-1/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 1: Network Forensics 1</a
-                >
-          </li>
-             <li>
-                <a
-                  href="https://cyberdefenders.org/online-labs/achievements/GhassanALNumani/network-forensics-2/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 1: Network Forensics 2</a
-                >
-          </li>
-           <li>
-                <a
-                  href="https://cyberdefenders.org/online-labs/achievements/GhassanALNumani/network-forensics-module-investigation/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 3: Network Forensics Module Investigation</a
-                >
-          </li>
-            <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/malware-traffic-analysis-1/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 4: Malware Traffic Analysis 1</a
-                >
-          </li>
-             <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/xxe-infiltration/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 5: XXE Infiltration</a
-                >
-          </li>
-             <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/xlmrat/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 6: XLMRat</a
-                >
-          </li>
-            <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/openfire/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 7: Openfire</a
-                >
-          </li>
-            <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/trident/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 8: Trident</a
-                >
-          </li>
-             <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/retailbreach/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 9: RetailBreach</a
-                >
-          </li>
-            <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/jetbrains/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 10: JetBrains</a
-                >
-          </li>
-            <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/packetdetective/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 11: PacketDetective</a
-                >
-          </li>
-            <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/danabot/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 12: DanaBot</a
-                >
-          </li>
-            <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/psexec-hunt/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 13: PsExec Hunt</a
-                >
-          </li>
-             <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/poisonedcredentials/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 14: PoisonedCredentials</a
-                >
-          </li>
-            <li>
-                <a
-                  href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/webstrike/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lab 15: WebStrike</a
-                >
-          </li>
-          </ul>
+  <!-- CTFs & Labs -->
+  <section id="labs" class="max-w-7xl mx-auto p-6">
+    <div class="flex items-end justify-between gap-4 flex-wrap">
+      <div>
+        <h2 class="text-3xl font-bold" style="color:var(--text)">CTFs & Labs</h2>
+        <p class="mt-1 text-sm" style="color:var(--muted)">Search, filter, and expand. First 6 shown by default.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <input id="labs-search" type="text" placeholder="Search labs..." class="px-3 py-2 rounded-xl text-sm border outline-none" style="border-color:var(--border);background:var(--card);color:var(--text)"/>
+        <select id="labs-filter" class="px-3 py-2 rounded-xl text-sm border" style="border-color:var(--border);background:var(--card);color:var(--text)">
+          <option value="all">All categories</option>
+          <option value="Network Forensics">Network Forensics</option>
+          <option value="Blue Team">Disk Forensics</option>
+          <option value="Malware">Memory Forensics</option>
+          <option value="Threat Hunting">Threat Hunting</option>
+          <!--<option value="IR">IR</option> -->
+        </select>
+        <select id="labs-diff" class="px-3 py-2 rounded-xl text-sm border" style="border-color:var(--border);background:var(--card);color:var(--text)">
+          <option value="all">All levels</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+        <button id="view-cards" class="px-3 py-2 rounded-xl text-sm border" style="border-color:var(--border);background:var(--card);color:var(--text)">Cards</button>
+        <button id="view-compact" class="px-3 py-2 rounded-xl text-sm border" style="border-color:var(--border);background:var(--card);color:var(--text)">Compact</button>
+      </div>
+    </div>
+
+    <div class="rounded-2xl p-3 border text-xs flex items-center justify-between mt-4" style="background:var(--card);border-color:var(--border);color:var(--muted)">
+      <div>Showing <span id="labs-count" class="font-semibold" style="color:var(--text)">0</span> of <span id="labs-total" class="font-semibold" style="color:var(--text)">0</span> labs</div>
+      <div class="hidden sm:block">Tip: click a lab's <strong>View full achievement</strong> for more details.</div>
+    </div>
+
+    <div id="labs-cards" class="mt-6 grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+
+    <div id="labs-compact" class="mt-6 hidden">
+      <div class="rounded-2xl overflow-hidden border" style="border-color:var(--border)">
+        <table class="w-full text-sm" style="color:var(--text)">
+          <thead style="background:var(--card)">
+            <tr>
+              <th class="text-left px-4 py-3">Title</th>
+              <th class="text-left px-4 py-3">Provider</th>
+              <th class="text-left px-4 py-3">Category</th>
+              <th class="text-left px-4 py-3">Level</th>
+              <th class="text-left px-4 py-3">Skills</th>
+            </tr>
+          </thead>
+          <tbody id="labs-rows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-center">
+      <button id="labs-more" class="px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:var(--border);color:var(--text);background:var(--card)">Load more</button>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="max-w-7xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-4" style="color:var(--text)">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <article class="rounded-2xl p-5 border" style="border-color:var(--border);background:var(--card)">
+        <h3 class="font-semibold" style="color:var(--text)">SOC Project : Windows Domain with Splunk</h3>
+        <p class="mt-2 text-sm" style="color:var(--muted)">This is a home lab project designed to simulate a basic Security Operations Center (SOC) environment using Windows infrastructure and Splunk for centralized log collection. More features and components will be added soon!</p>
+        <button class="mt-4 px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:var(--border);color:var(--text);background:var(--bg)">View on GitHub</button>
+      </article>
+      <!--<article class="rounded-2xl p-5 border" style="border-color:var(--border);background:var(--card)">
+        <h3 class="font-semibold" style="color:var(--text)">Cybersecurity Portfolio Site</h3>
+        <p class="mt-2 text-sm" style="color:var(--muted)">This portfolio, built as a single-page site to highlight SOC skills, labs, and achievements.</p>
+        <a href="https://github.com/ghassanalnomani/cybersecurity-portfolio" target="_blank" class="mt-4 inline-flex px-4 py-2 rounded-xl text-sm font-medium border" style="border-color:var(--border);color:var(--text);background:var(--bg)">View on GitHub</a>
+      </article> -->
+    </div>
+  </section>
+
+  <!-- Certifications (hover to reveal details) -->
+  <section id="certifications" class="max-w-7xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-4" style="color:var(--text)">Certifications</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div tabindex="0" class="group relative rounded-xl p-4 border transition-transform duration-200 hover:scale-[1.02]" style="border-color:var(--border);background:var(--card)">
+        <div class="flex items-center gap-3">
+          <img src="images/ccd.png" class="w-8 h-8"/>
+          <h4 class="font-semibold" style="color:var(--text)">Certified CyberDefender (CCD)</h4>
+        </div>
+        <div class="mt-3 overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40">
+          <p class="text-sm" style="color:var(--muted)">CCD is a vendor-neutral, hands-on cybersecurity training and certification. It is designed to prepare the next generation of SOC analysts, security blue teams, threat hunters, and DFIR professionals, building skills across multiple domains such as SecOps Fundamentals, Perimeter Defense, Incident Response, Digital Forensics, Threat Hunting and Malware Analysis.</p>
+        </div>
+      </div>
+      
+      <div tabindex="0" class="group relative rounded-xl p-4 border transition-transform duration-200 hover:scale-[1.02]" style="border-color:var(--border);background:var(--card)">
+        <div class="flex items-center gap-3">
+          <img src="images/Security+-jpg.jpg" class="w-8 h-8"/>
+          <h4 class="font-semibold" style="color:var(--text)">CompTIA Security+</h4>
+        </div>
+        <div class="mt-3 overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40">
+          <p class="text-sm" style="color:var(--muted)">Earners of the CompTIA Security+ certification have the knowledge and skills necessary to perform core security functions required of any cybersecurity role. CompTIA Security+ professionals know how to identify and address potential threats, attacks and vulnerabilities and they have established techniques in risk management, risk mitigation, threat management and intrusion detection.</p>
+        </div>
       </div>
 
-      <div class="card ctf-card">
-        <i class="fa-solid fa-laptop-code"></i>
-        <h3>Blue Team Labs Online BTLO</h3>
-        <p>Completed more than 10 investigations in different domains: IR, Digital Forensics, SecOps, Threat Intelligence</p>
-        <ul>
-          <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/32"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Deep Blue - IR</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/1"
-              target="_blank"
-              rel="noopener noreferrer"
-              >CountDown - Digital Forensics </a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/229"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Breach - Digital Forensics</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/227"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Vortex - SecOps</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/181"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Winter Stew - IR</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/140"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Deep Phish - SecOps</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/126"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Suspended - SecOps</a
-            >
-          </li>
-           <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/112"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Blocker - SecOps</a
-            >
-          </li>
-           <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/108"
-              target="_blank"
-              rel="noopener noreferrer"
-              >DrillDown - IR</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/104"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Indicators - IR</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/73"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Printer - IR</a
-            >
-          </li>
-           <li>
-            <a
-              href="https://blueteamlabs.online/achievement/share/84018/3"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Sticky Situation - Digital Forensics</a
-            >
-          </li>
-          <!-- Add more as needed -->
-        </ul>
+      <div tabindex="0" class="group relative rounded-xl p-4 border transition-transform duration-200 hover:scale-[1.02]" style="border-color:var(--border);background:var(--card)">
+        <div class="flex items-center gap-3">
+          <img src="images/ECC-CSA-07FE19KHD2E3.png" class="w-8 h-8"/>
+          <h4 class="font-semibold" style="color:var(--text)">EC-Council SOC Analyst Certified (CSA)</h4>
+        </div>
+        <div class="mt-3 overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40">
+          <p class="text-sm" style="color:var(--muted)">The Certified SOC Analyst has an in-depth understanding of various attack methodologies, to collaborating with the IRTs in case of an incident. A certified member has adequate knowledge to bring people, process and technology together and provide a comprehensive skill set to manage a robust security operation centre with enhanced incident detection and response capabilities.</p>
+        </div>
+      </div>
+      
+      <div tabindex="0" class="group relative rounded-xl p-4 border transition-transform duration-200 hover:scale-[1.02]" style="border-color:var(--border);background:var(--card)">
+        <div class="flex items-center gap-3">
+          <img src="images/logo.png" class="w-8 h-8"/>
+          <h4 class="font-semibold" style="color:var(--text)">Blue Team Level 1 (BTL1)</h4>
+        </div>
+        <div class="mt-3 overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40">
+          <p class="text-sm" style="color:var(--muted)">Earners of the Blue Team Level 1 Certification have showcased the practical ability to defend networks and systems from cyber threats through technical and hands-on defensive cybersecurity training. The have knowledgable and ability across 5 security operations domains which include Phishing Analysis, Digital Forensics, Threat Intelligence, SIEM, and Incident Response. Beta Testers have played a crucial part in the development of BTL1 by providing structured review and feedback.</p>
+        </div>
       </div>
 
-      <div class="card ctf-card">
-        <i class="fa-solid fa-book"></i>
-        <h3>CyberDefenders</h3>
-        <p>SOC Analyst Tier 1 - In Progress ( 22/33 Investigations Labs )</p>
-        <ul>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanSaud/webstrike/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 1: WebStrike</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanSaud/poisonedcredentials/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 2: PoisonedCredentials</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/oski/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 3: Ozki</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/yellow-rat/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 4: Yellow RAT</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/amadey/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 5: Amady</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/lespion/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 6: Lespion</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/lespion/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 7: The Crime</a
-            >
-          </li>
-           <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/psexec-hunt/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 8: PsExec Hunt</a
-            >
-          </li>
-           <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/red-stealer/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 9: Red Stealer</a
-            >
-          </li>
-        <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/3cx-supply-chain/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 10: 3CX Supply Chain</a
-            >
-          </li>
-
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/danabot/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 11: DanaBot</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/volatility-traces/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 12: Volatility Traces</a
-            >
-          </li>
-         <!-- <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/volatility-traces/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 13: Insider</a
-            >
-          </li>-->
-         <!-- <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/volatility-traces/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 14: NerisBot</a
-            >
-          </li> -->
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/ramnit/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 15: Ramnit</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/grabthephisher/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 16: GrabThePhisher</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/packetdetective/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 17: PacketDetective</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/jetbrains/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 18: JetBrains</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/retailbreach/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 19: RetailBreach</a
-            >
-          </li>
-         <!-- <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/retailbreach/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 20: AWSRaid/a
-            >
-          </li> -->
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/tomcat-takeover/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 21: Tomcat Takeover</a
-            >
-          </li> 
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/reveal/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 22: REvil</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/xxe-infiltration/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 23: XXE Infiltration</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/redline/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 24: RedLine</a>
-            
-          </li>
-          <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/icedid/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 25: IcedID</a
-            >
-          </li>
-          <!-- <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/redline/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 26: AzureHunt</a
-            >
-          </li> -->
-          <!-- <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/redline/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 27: XMRig</a
-            >
-          </li> -->
-          <!-- <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/redline/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 28: Andromeda Bot</a
-            >
-          </li> -->
-           <!--<li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/redline/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 29: Web Investigation</a
-            >
-          </li> -->
-           <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/reveal/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 30: Reveal</a
-            >
-          </li>
-        </ul>
+      <div tabindex="0" class="group relative rounded-xl p-4 border transition-transform duration-200 hover:scale-[1.02]" style="border-color:var(--border);background:var(--card)">
+        <div class="flex items-center gap-3">
+          <img src="images/ejpt.jfif" class="w-8 h-8"/>
+          <h4 class="font-semibold" style="color:var(--text)">Junior Penetration Tester (eJPT)</h4>
+        </div>
+        <div class="mt-3 overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40">
+          <p class="text-sm" style="color:var(--muted)">Assessment Methodologies, Web Application Penetration Test, Host & Networking Penetration Testing, Host & Networking Auditing</p>
+        </div>
       </div>
-      <!-- SOC level 2 -->
-      <div class="card ctf-card">
-        <i class="fa-solid fa-book"></i>
-        <h3>CyberDefenders</h3>
-        <p>SOC Analyst Tier 2 - In Progress</p>
-        <ul>
-          <!-- <li>
-            <a
-              href="https://cyberdefenders.org/blueteam-ctf-challenges/achievements/GhassanALNumani/reveal/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lab 1: Reveal</a
-            >
-          </li> -->
-        </ul>
+
+      <div tabindex="0" class="group relative rounded-xl p-4 border transition-transform duration-200 hover:scale-[1.02]" style="border-color:var(--border);background:var(--card)">
+        <div class="flex items-center gap-3">
+          <img src="images/ejpt.jfif" class="w-8 h-8"/>
+          <h4 class="font-semibold" style="color:var(--text)">Google CyberSecurity Professional</h4>
+        </div>
+        <div class="mt-3 overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40">
+          <p class="text-sm" style="color:var(--muted)">Those who earn the Google Cybersecurity Certificate, developed by Google, have demonstrated their competence in foundational cybersecurity tactics. Through hands-on activities and assessments, graduates develop proficiency in identifying common risks and vulnerabilities and using Python, Linux, SQL, SIEM tools, and Intrusion Detection Systems to mitigate threats, preparing them for entry-level roles in cybersecurity.</p>
+        </div>
+      </div>
+      
+      <div tabindex="0" class="group relative rounded-xl p-4 border transition-transform duration-200 hover:scale-[1.02]" style="border-color:var(--border);background:var(--card)">
+        <div class="flex items-center gap-3">
+          <img src="images/ejpt.jfif" class="w-8 h-8"/>
+          <h4 class="font-semibold" style="color:var(--text)">Cisco Certified CCNA</h4>
+        </div>
+        <div class="mt-3 overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40">
+          <p class="text-sm" style="color:var(--muted)">Earners of Cisco CCNA - Implementing and Administering Cisco Solutions (CCNA) have demonstrated knowledge and skills related to network fundamentals, network access, IP connectivity, IP services, security fundamentals, and automation and programmability.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="max-w-7xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-6" style="color:var(--text)">Skills</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl p-5 border" style="border-color:var(--border);background:var(--card)">
+        <h3 class="font-semibold mb-3" style="color:var(--text)">Network Forensics & Traffic Analysis</h3>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Wireshark</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">NetworkMiner</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Zeek (Bro)</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Network Protocol Analysis</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Identifying Anomalous Traffic Patterns</span>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-5 border" style="border-color:var(--border);background:var(--card)">
+        <h3 class="font-semibold mb-3" style="color:var(--text)">Endpoint & Digital Forensics</h3>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Disk Artifacts</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Volatility</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">EVTX</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Memory Forensics</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Registry Explorer</span
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Event Log Explorer</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">NTFS Log Tracker</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Windows Process</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">FTK Imager</span>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-5 border" style="border-color:var(--border);background:var(--card)">
+        <h3 class="font-semibold mb-3" style="color:var(--text)">Threat Hunting</h3>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">MITRE ATT&CK</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">SIEM Platforms (ELK, Splunk)</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Sysmon Log Analysis</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Hypothesis-Driven Hunting</span>
+          <span class="px-2 py-0.5 rounded-lg border" style="border-color:var(--border)">Indicator of Compromise (IOC)</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="projects">
-  <h2>Projects</h2>
- <!-- <p>
-    I’m currently working on cybersecurity projects that simulate real-world SOC environments.
-  </p>
-  <p>
-    🚀 These projects reflect my technical depth, investigative thinking, and ability to apply defensive strategies in live environments.  
-    If you're hiring for a passionate, hands-on SOC analyst — stay tuned or feel free to connect!
-  </p>-->
-  <div class="project-card">
-    <h3>SOC Project: Windows Domain with Splunk</h3>
-    <p>Security Operations Center (SOC) using Windows infrastructure and Splunk for centralized log collection, and More!</p>
-    <a href="https://github.com/ghassanalnomani/SOC-Splunk-Project" target="_blank">🔗 View Project on GitHub</a>
-  </div>
-</section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="card">
-        <i class="fa-solid fa-shield-halved"></i>
-        <h3>SIEM Tools</h3>
-        <p>Splunk</p>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-file-lines"></i>
-        <h3>Log Analysis</h3>
-        <p>Sysmon, Event Viewer, PowerShell & Bash</p>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-network-wired"></i>
-        <h3>Networking</h3>
-        <p>Wireshark, tcpdump, nmap, network diagnostics commands</p>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <h3>Threat Hunting</h3>
-        <p>MITRE ATT&CK</p>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-headset"></i>
-        <h3>Incident Response</h3>
-        <p>ServiceNow, Triage alert, Document steps and timelines, Collaborate with teams</p>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-fingerprint"></i>
-        <h3>Digital Forensics</h3>
-        <p>Autopsy, Volatility, FTK Imager, Windows/Linux artifacts</p>
-      </div>
+  <!-- Volunteer -->
+  <section id="volunteer" class="max-w-7xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-4" style="color:var(--text)">Volunteer</h2>
+    <div class="rounded-xl p-4 border" style="border-color:var(--border);background:var(--card)">
+      <h3 class="font-semibold" style="color:var(--text)">Cyber Ambassador</h3>
+      <p class="text-sm" style="color:var(--muted)">As a Cyber Ambassador network at Castrol, Helping to identify and implement action to address insecure behaviors. Supporting group-wide initiatives and awareness campaigns such as a cyber week ( training session ), increasing overall cyber score for the site..</p>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact me in LinkedIn:</h2>
-    <p>
-      🔗 LinkedIn:
-      <a
-        href="https://www.linkedin.com/in/ghassan-alnomani/"
-        style="color: var(--color-primary)"
-        >https://www.linkedin.com/in/ghassan-alnomani/</a
-      >
-    </p>
-    
+  <!-- Contact -->
+  <section id="contact" class="max-w-7xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-4" style="color:var(--text)">Contact</h2>
+    <div class="flex items-center gap-3 flex-wrap">
+      <button id="emailBtn" class="px-4 py-2 rounded-xl border font-medium" style="border-color:var(--border);color:var(--text);background:var(--card)">Show Email</button>
+      <span id="emailDisplay" class="text-sm select-text hidden" style="color:var(--muted)">alnumani.ghassan@gmail.com</span>
+      <a href="https://www.linkedin.com/in/ghassan-alnomani/" target="_blank" class="px-4 py-2 rounded-xl font-medium border" style="border-color:var(--border);background:var(--card);color:var(--text)">LinkedIn</a>
+    </div>
+  </section>
+
+  <script>
+  window.addEventListener('DOMContentLoaded', function() {
+    // Email toggle
+    var emailBtn = document.getElementById('emailBtn');
+    var emailDisplay = document.getElementById('emailDisplay');
+    if (emailBtn && emailDisplay) {
+      emailBtn.addEventListener('click', function() {
+        if (emailDisplay.classList.contains('hidden')) {
+          emailDisplay.classList.remove('hidden');
+          emailBtn.textContent = 'Hide Email';
+        } else {
+          emailDisplay.classList.add('hidden');
+          emailBtn.textContent = 'Show Email';
+        }
+      });
+    }
+
+    // Labs data & logic
+    var labsData = [
+      {id:1,title:'Network Forensics 1',provider:'CyberDefenders',category:'Network Forensics',level:'Intermediate',time:'—',findings:4,detections:1,skills:['Wireshark','PCAP','ATT&CK'],link:'https://cyberdefenders.org/online-labs/achievements/GhassanALNumani/network-forensics-1/',blurb:'Traffic triage and indicators from packet captures.'},
+      {id:2,title:'Network Forensics 2',provider:'CyberDefenders',category:'Network Forensics',level:'Intermediate',time:'—',findings:3,detections:1,skills:['Wireshark','Zeek','PCAP'],link:'https://cyberdefenders.org/online-labs/achievements/GhassanALNumani/network-forensics-2/',blurb:'Pivoting through flows to reconstruct activity.'},
+      {id:3,title:'Post-Exploitation CTF 1',provider:'Blue Team Labs Online',category:'IR',level:'Beginner',time:'3h',findings:4,detections:1,skills:['Sysmon','Sigma','Timeline'],link:'#',blurb:'Investigated lateral movement and persistence.'},
+      {id:4,title:'PacketDetective',provider:'CyberDefenders',category:'Network Forensics',level:'Intermediate',time:'—',findings:2,detections:1,skills:['PCAP','Protocol'],link:'#',blurb:'Identify anomalies in protocol usage.'},
+      {id:5,title:'RetailBreach',provider:'CyberDefenders',category:'Blue Team',level:'Intermediate',time:'—',findings:3,detections:1,skills:['Splunk','IR'],link:'#',blurb:'Investigate retail environment breach.'},
+      {id:6,title:'PsExec Hunt',provider:'CyberDefenders',category:'Threat Hunting',level:'Intermediate',time:'—',findings:2,detections:1,skills:['Lateral Movement','Sigma'],link:'#',blurb:'Hunt for remote execution patterns.'},
+      {id:7,title:'Volatility Traces',provider:'CyberDefenders',category:'Forensics',level:'Intermediate',time:'—',findings:3,detections:0,skills:['Volatility','Memory'],link:'#',blurb:'Memory artifacts and triage.'},
+      {id:8,title:'Deep Blue',provider:'Blue Team Labs Online',category:'IR',level:'Beginner',time:'—',findings:3,detections:1,skills:['WinEVTX','IR','Triage'],link:'https://blueteamlabs.online/achievement/share/84018/32',blurb:'Host triage using Windows event logs.'}
+    ];
+
+    var pageSize = 6;
+    var page = 0;
+    var view = 'cards';
+    var query = '';
+    var filterCat = 'all';
+    var filterDiff = 'all';
+
+    var elCards = document.getElementById('labs-cards');
+    var elCompactWrap = document.getElementById('labs-compact');
+    var elRows = document.getElementById('labs-rows');
+    var elMore = document.getElementById('labs-more');
+    var elCount = document.getElementById('labs-count');
+    var elTotal = document.getElementById('labs-total');
+    var elSearch = document.getElementById('labs-search');
+    var elFilter = document.getElementById('labs-filter');
+    var elDiff = document.getElementById('labs-diff');
+    var btnCards = document.getElementById('view-cards');
+    var btnCompact = document.getElementById('view-compact');
+
+    if (elTotal) elTotal.textContent = labsData.length;
+
+    function applyFilters(data) {
+      return data.filter(function(d) {
+        var q = query.trim().toLowerCase();
+        var matchesQ = !q || d.title.toLowerCase().includes(q) || d.provider.toLowerCase().includes(q) || d.skills.join(' ').toLowerCase().includes(q);
+        var matchesCat = filterCat === 'all' || d.category === filterCat;
+        var matchesDiff = filterDiff === 'all' || d.level === filterDiff;
+        return matchesQ && matchesCat && matchesDiff;
+      });
+    }
+
+    function cardTemplate(d) {
+      var html = '';
+      html += '<article class="group relative overflow-hidden rounded-2xl border shadow-sm transition-transform duration-300 hover:scale-[1.02]" style="background:var(--card);border-color:var(--border)">';
+      html += '<div class="p-5 relative">';
+      html += '<div class="flex items-center justify-between">';
+      html += '<span class="px-2 py-0.5 rounded-lg text-xs font-semibold" style="background:var(--bg);color:var(--text)">' + d.provider + '</span>';
+      html += '<span class="px-2 py-0.5 rounded-lg text-xs border" style="border-color:var(--border);color:var(--muted)">Difficulty: ' + d.level + '</span>';
+      html += '</div>';
+      html += '<h3 class="mt-2 font-semibold" style="color:var(--text)">' + d.title + '</h3>';
+      html += '<p class="text-sm mt-1" style="color:var(--muted)">' + d.blurb + '</p>';
+      html += '<div class="mt-3 flex flex-wrap gap-2">';
+      html += d.skills.map(function(s){return '<span class="px-2 py-0.5 rounded-lg text-xs border" style="border-color:var(--border);color:var(--text)">' + s + '</span>';}).join('');
+      html += '</div>';
+      html += '<div class="mt-4 grid grid-cols-3 gap-2 text-center">';
+      html += '<div class="rounded-xl p-2 border" style="border-color:var(--border)"><div class="text-xs" style="color:var(--muted)">Time</div><div class="text-sm font-semibold" style="color:var(--text)">' + d.time + '</div></div>';
+      html += '<div class="rounded-xl p-2 border" style="border-color:var(--border)"><div class="text-xs" style="color:var(--muted)">Findings</div><div class="text-sm font-semibold" style="color:var(--text)">' + d.findings + '</div></div>';
+      html += '<div class="rounded-xl p-2 border" style="border-color:var(--border)"><div class="text-xs" style="color:var(--muted)">Detections</div><div class="text-sm font-semibold" style="color:var(--text)">' + d.detections + '</div></div>';
+      html += '</div>';
+      html += '<a href="' + d.link + '" target="_blank" class="mt-4 inline-flex items-center px-3 py-2 rounded-xl text-sm font-medium shadow-sm border" style="border-color:var(--border);color:var(--text);background:var(--bg)">Open lab</a>';
+      html += '<button data-target="labs-details-' + d.id + '" class="labs-details-btn mt-2 inline-flex items-center px-3 py-2 rounded-xl text-sm font-medium shadow-sm border" style="border-color:var(--border);color:var(--text);background:var(--bg)">View full achievement</button>';
+      html += '<div id="labs-details-' + d.id + '" class="mt-3 hidden">';
+      html += '<p class="text-sm" style="color:var(--muted)">Complete achievement: ' + d.title + ' — ' + d.provider + '. Skills: ' + d.skills.join(', ') + '. Category: ' + d.category + '. Level: ' + d.level + '. Time spent: ' + d.time + '. Findings: ' + d.findings + '. Detections: ' + d.detections + '.</p>';
+      html += '</div>';
+      html += '</div>';
+      html += '</article>';
+      return html;
+    }
+
+    function rowTemplate(d) {
+      return '<tr class="border-t" style="border-color:var(--border)">' +
+        '<td class="px-4 py-3">' + d.title + '</td>' +
+        '<td class="px-4 py-3">' + d.provider + '</td>' +
+        '<td class="px-4 py-3">' + d.category + '</td>' +
+        '<td class="px-4 py-3">' + d.level + '</td>' +
+        '<td class="px-4 py-3">' + d.skills.join(', ') + '</td>' +
+        '</tr>';
+    }
+
+    function bindDetailToggles() {
+      var buttons = document.querySelectorAll('.labs-details-btn');
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var id = btn.getAttribute('data-target');
+          var el = document.getElementById(id);
+          if (!el) return;
+          el.classList.toggle('hidden');
+          btn.textContent = el.classList.contains('hidden') ? 'View full achievement' : 'Hide details';
+        });
+      });
+    }
+
+    function render() {
+      if (!elCards || !elRows || !elMore || !elCount || !elCompactWrap) return;
+      var filtered = applyFilters(labsData);
+      elCount.textContent = Math.min((page + 1) * pageSize, filtered.length);
+      elMore.style.display = ((page + 1) * pageSize) < filtered.length ? 'inline-flex' : 'none';
+
+      var slice = filtered.slice(0, (page + 1) * pageSize);
+      if (view === 'cards') {
+        elCards.classList.remove('hidden');
+        elCompactWrap.classList.add('hidden');
+        elCards.innerHTML = slice.map(cardTemplate).join('');
+        bindDetailToggles();
+      } else {
+        elCards.classList.add('hidden');
+        elCompactWrap.classList.remove('hidden');
+        elRows.innerHTML = slice.map(rowTemplate).join('');
+      }
+    }
+
+    if (elMore) {
+      elMore.addEventListener('click', function() {
+        page++;
+        render();
+      });
+    }
+    if (elSearch) {
+      elSearch.addEventListener('input', function(e) {
+        query = e.target.value;
+        page = 0;
+        render();
+      });
+    }
+    if (elFilter) {
+      elFilter.addEventListener('change', function(e) {
+        filterCat = e.target.value;
+        page = 0;
+        render();
+      });
+    }
+    if (elDiff) {
+      elDiff.addEventListener('change', function(e) {
+        filterDiff = e.target.value;
+        page = 0;
+        render();
+      });
+    }
+    if (btnCards) {
+      btnCards.addEventListener('click', function() {
+        view = 'cards';
+        page = 0;
+        render();
+      });
+    }
+    if (btnCompact) {
+      btnCompact.addEventListener('click', function() {
+        view = 'compact';
+        page = 0;
+        render();
+      });
+    }
+
+    render();
+  });
+</script>
+
+<!-- END OF PAGE -->
+
+</body>
+</html>
