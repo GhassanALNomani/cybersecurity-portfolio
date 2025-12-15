@@ -20,15 +20,16 @@
   const animateCounters = () => {
     counters.forEach(counter => {
       const target = +counter.getAttribute('data-count');
+      const numberEl = counter.querySelector('span:last-child');
       let current = 0;
       const increment = Math.max(1, Math.floor(target / 40));
 
       const updateCounter = () => {
         current += increment;
         if (current >= target) {
-          counter.textContent = '+' + target;
+          numberEl.textContent = '+' + target;
         } else {
-          counter.textContent = '+' + current;
+          numberEl.textContent = '+' + current;
           requestAnimationFrame(updateCounter);
         }
       };
@@ -48,6 +49,7 @@
 
   observer.observe(document.querySelector('#achievements'));
 </script>
+  
 <body class="antialiased">
   <!-- Header -->
   <header class="p-4 flex justify-between items-center max-w-7xl mx-auto">
@@ -103,10 +105,11 @@
     <!-- Achievement 1: Ranking -->
     <div class="rounded-2xl p-6 border text-center"
          style="border-color:var(--border);background:var(--card)">
-      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold transition transform duration-300 hover:scale-105"
+      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex flex-col items-center justify-center font-bold transition transform duration-300 hover:scale-105"
            data-count="5"
            style="background:var(--primary);color:white">
-        0
+        <span class="text-xs">🏆</span>
+        <span class="text-lg">0</span>
       </div>
       <h3 class="font-semibold" style="color:var(--text)">
         CyberDefender Ranking
@@ -119,10 +122,11 @@
     <!-- Achievement 2: Labs -->
     <div class="rounded-2xl p-6 border text-center"
          style="border-color:var(--border);background:var(--card)">
-      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold transition transform duration-300 hover:scale-105"
+      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex flex-col items-center justify-center font-bold transition transform duration-300 hover:scale-105"
            data-count="50"
            style="background:var(--primary);color:white">
-        0
+        <span class="text-xs">🔍</span>
+        <span class="text-lg">0</span>
       </div>
       <h3 class="font-semibold" style="color:var(--text)">
         SOC & DFIR Labs
@@ -135,10 +139,11 @@
     <!-- Achievement 3: Project -->
     <div class="rounded-2xl p-6 border text-center"
          style="border-color:var(--border);background:var(--card)">
-      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold transition transform duration-300 hover:scale-105"
+      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex flex-col items-center justify-center font-bold transition transform duration-300 hover:scale-105"
            data-count="1"
            style="background:var(--primary);color:white">
-        0
+        <span class="text-xs">🖥️</span>
+        <span class="text-lg">0</span>
       </div>
       <h3 class="font-semibold" style="color:var(--text)">
         SOC Project
@@ -151,10 +156,11 @@
     <!-- Achievement 4: Certifications -->
     <div class="rounded-2xl p-6 border text-center"
          style="border-color:var(--border);background:var(--card)">
-      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold transition transform duration-300 hover:scale-105"
+      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex flex-col items-center justify-center font-bold transition transform duration-300 hover:scale-105"
            data-count="6"
            style="background:var(--primary);color:white">
-        0
+        <span class="text-xs">📜</span>
+        <span class="text-lg">0</span>
       </div>
       <h3 class="font-semibold" style="color:var(--text)">
         Professional Certifications
