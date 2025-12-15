@@ -14,27 +14,26 @@
     .scroll-container::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px;}
   </style>
 </head>
+  
   <script>
   const counters = document.querySelectorAll('.counter');
 
   const animateCounters = () => {
     counters.forEach(counter => {
       const target = +counter.getAttribute('data-count');
-      const numberEl = counter.querySelector('span:last-child');
       let current = 0;
       const increment = Math.max(1, Math.floor(target / 40));
 
-      const updateCounter = () => {
+      const update = () => {
         current += increment;
         if (current >= target) {
-          numberEl.textContent = '+' + target;
+          counter.textContent = '+' + target;
         } else {
-          numberEl.textContent = '+' + current;
-          requestAnimationFrame(updateCounter);
+          counter.textContent = '+' + current;
+          requestAnimationFrame(update);
         }
       };
-
-      updateCounter();
+      update();
     });
   };
 
@@ -96,77 +95,52 @@
 
 <!-- Highlighted Achievements -->
 <section id="achievements" class="max-w-7xl mx-auto p-6">
-  <h2 class="text-3xl font-bold mb-8" style="color:var(--text)">
-    Highlighted Achievements
-  </h2>
+  <h2 class="text-3xl font-bold mb-8" style="color:var(--text)">Highlighted Achievements</h2>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-    <!-- Achievement 1: Ranking -->
-    <div class="rounded-2xl p-6 border text-center"
+  <div class="grid md:grid-cols-3 gap-6">
+    
+    <!-- Labs -->
+    <div class="rounded-2xl p-6 border text-center transition transform hover:scale-105"
          style="border-color:var(--border);background:var(--card)">
-      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex flex-col items-center justify-center font-bold transition transform duration-300 hover:scale-105"
-           data-count="5"
-           style="background:var(--primary);color:white">
-        <span class="text-xs">🏆</span>
-        <span class="text-lg">0</span>
-      </div>
-      <h3 class="font-semibold" style="color:var(--text)">
-        CyberDefender Ranking
-      </h3>
-      <p class="mt-2 text-sm" style="color:var(--muted)">
-        Ranked <strong>#5 in Saudi Arabia</strong> and <strong>#82 globally</strong>.
-      </p>
-    </div>
+      <div class="mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-2xl"
+           style="background:var(--primary);color:white">🧪</div>
 
-    <!-- Achievement 2: Labs -->
-    <div class="rounded-2xl p-6 border text-center"
-         style="border-color:var(--border);background:var(--card)">
-      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex flex-col items-center justify-center font-bold transition transform duration-300 hover:scale-105"
+      <div class="counter text-3xl font-bold"
            data-count="50"
-           style="background:var(--primary);color:white">
-        <span class="text-xs">🔍</span>
-        <span class="text-lg">0</span>
-      </div>
-      <h3 class="font-semibold" style="color:var(--text)">
-        SOC & DFIR Labs
-      </h3>
+           style="color:var(--text)">0</div>
+
       <p class="mt-2 text-sm" style="color:var(--muted)">
-        Hands-on investigations using Splunk, ELK, and Wireshark.
+        SOC & DFIR Labs Completed
       </p>
     </div>
 
-    <!-- Achievement 3: Project -->
-    <div class="rounded-2xl p-6 border text-center"
+    <!-- Projects -->
+    <div class="rounded-2xl p-6 border text-center transition transform hover:scale-105"
          style="border-color:var(--border);background:var(--card)">
-      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex flex-col items-center justify-center font-bold transition transform duration-300 hover:scale-105"
+      <div class="mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-2xl"
+           style="background:var(--primary);color:white">🛠️</div>
+
+      <div class="counter text-3xl font-bold"
            data-count="1"
-           style="background:var(--primary);color:white">
-        <span class="text-xs">🖥️</span>
-        <span class="text-lg">0</span>
-      </div>
-      <h3 class="font-semibold" style="color:var(--text)">
-        SOC Project
-      </h3>
+           style="color:var(--text)">0</div>
+
       <p class="mt-2 text-sm" style="color:var(--muted)">
-        Windows Domain SOC with centralized logging and custom detections.
+        End-to-End SOC Projects
       </p>
     </div>
 
-    <!-- Achievement 4: Certifications -->
-    <div class="rounded-2xl p-6 border text-center"
+    <!-- Certifications -->
+    <div class="rounded-2xl p-6 border text-center transition transform hover:scale-105"
          style="border-color:var(--border);background:var(--card)">
-      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex flex-col items-center justify-center font-bold transition transform duration-300 hover:scale-105"
+      <div class="mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-2xl"
+           style="background:var(--primary);color:white">🎓</div>
+
+      <div class="counter text-3xl font-bold"
            data-count="6"
-           style="background:var(--primary);color:white">
-        <span class="text-xs">📜</span>
-        <span class="text-lg">0</span>
-      </div>
-      <h3 class="font-semibold" style="color:var(--text)">
-        Professional Certifications
-      </h3>
+           style="color:var(--text)">0</div>
+
       <p class="mt-2 text-sm" style="color:var(--muted)">
-        Security+, eJPT, CCD, ITILv4, CCNA, Blue Team Level 1.
+        Professional Certifications
       </p>
     </div>
 
@@ -379,6 +353,51 @@
     </div>
   </section>
 
+  <!-- Awards & Honors -->
+<section id="awards" class="max-w-7xl mx-auto p-6">
+  <h2 class="text-3xl font-bold mb-8" style="color:var(--text)">Awards & Honors</h2>
+
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <!-- Award -->
+    <div class="rounded-2xl p-5 border"
+         style="border-color:var(--border);background:var(--card)">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl"
+             style="background:var(--primary);color:white">🏆</div>
+
+        <div>
+          <h3 class="font-semibold" style="color:var(--text)">
+            CyberDefenders Platform – Top 5 National Ranking
+          </h3>
+          <p class="text-sm mt-1" style="color:var(--muted)">
+            Ranked #5 in Saudi Arabia for real-world SOC & DFIR challenges.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Honor -->
+    <div class="rounded-2xl p-5 border"
+         style="border-color:var(--border);background:var(--card)">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl"
+             style="background:var(--primary);color:white">🥇</div>
+
+        <div>
+          <h3 class="font-semibold" style="color:var(--text)">
+            Academic Excellence – Bachelor of Computer Science
+          </h3>
+          <p class="text-sm mt-1" style="color:var(--muted)">
+            Graduated with Second Class Honors (GPA 4.25 / 5).
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+  
   <!-- Volunteer -->
   <section id="volunteer" class="max-w-7xl mx-auto p-6">
     <h2 class="text-3xl font-bold mb-4" style="color:var(--text)">Volunteer</h2>
