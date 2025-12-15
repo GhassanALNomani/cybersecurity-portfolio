@@ -14,6 +14,40 @@
     .scroll-container::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px;}
   </style>
 </head>
+  <script>
+  const counters = document.querySelectorAll('.counter');
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-count');
+      let current = 0;
+      const increment = Math.max(1, Math.floor(target / 40));
+
+      const updateCounter = () => {
+        current += increment;
+        if (current >= target) {
+          counter.textContent = '+' + target;
+        } else {
+          counter.textContent = '+' + current;
+          requestAnimationFrame(updateCounter);
+        }
+      };
+
+      updateCounter();
+    });
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.disconnect();
+      }
+    });
+  });
+
+  observer.observe(document.querySelector('#achievements'));
+</script>
 <body class="antialiased">
   <!-- Header -->
   <header class="p-4 flex justify-between items-center max-w-7xl mx-auto">
@@ -58,38 +92,40 @@
     </div>
   </section>
 
-  <!-- Achievements + Timeline (scrollable) -->
-  <section id="achievements" class="max-w-7xl mx-auto p-6">
+<!-- Highlighted Achievements -->
+<section id="achievements" class="max-w-7xl mx-auto p-6">
   <h2 class="text-3xl font-bold mb-8" style="color:var(--text)">
     Highlighted Achievements
   </h2>
 
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-    <!-- Achievement 1 -->
+    <!-- Achievement 1: Ranking -->
     <div class="rounded-2xl p-6 border text-center"
          style="border-color:var(--border);background:var(--card)">
-      <div class="mx-auto mb-4 w-14 h-14 rounded-full flex items-center justify-center"
+      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold transition transform duration-300 hover:scale-105"
+           data-count="5"
            style="background:var(--primary);color:white">
-        🛡️
+        0
       </div>
       <h3 class="font-semibold" style="color:var(--text)">
-        Certified CyberDefender (CCD)
+        CyberDefender Ranking
       </h3>
       <p class="mt-2 text-sm" style="color:var(--muted)">
         Ranked <strong>#5 in Saudi Arabia</strong> and <strong>#82 globally</strong>.
       </p>
     </div>
 
-    <!-- Achievement 2 -->
+    <!-- Achievement 2: Labs -->
     <div class="rounded-2xl p-6 border text-center"
          style="border-color:var(--border);background:var(--card)">
-      <div class="mx-auto mb-4 w-14 h-14 rounded-full flex items-center justify-center"
+      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold transition transform duration-300 hover:scale-105"
+           data-count="50"
            style="background:var(--primary);color:white">
-        🔍
+        0
       </div>
       <h3 class="font-semibold" style="color:var(--text)">
-        SOC & DFIR Labs (50+)
+        SOC & DFIR Labs
       </h3>
       <p class="mt-2 text-sm" style="color:var(--muted)">
         Hands-on investigations using Splunk, ELK, and Wireshark.
@@ -99,36 +135,39 @@
     <!-- Achievement 3: Project -->
     <div class="rounded-2xl p-6 border text-center"
          style="border-color:var(--border);background:var(--card)">
-      <div class="mx-auto mb-4 w-14 h-14 rounded-full flex items-center justify-center"
+      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold transition transform duration-300 hover:scale-105"
+           data-count="1"
            style="background:var(--primary);color:white">
-        🖥️
+        0
       </div>
       <h3 class="font-semibold" style="color:var(--text)">
-        Windows Domain SOC Project
+        SOC Project
       </h3>
       <p class="mt-2 text-sm" style="color:var(--muted)">
-        Built AD environment with centralized logging, dashboards, and custom detections.
+        Windows Domain SOC with centralized logging and custom detections.
       </p>
     </div>
 
-    <!-- Achievement 4: Professional Certifications -->
+    <!-- Achievement 4: Certifications -->
     <div class="rounded-2xl p-6 border text-center"
          style="border-color:var(--border);background:var(--card)">
-      <div class="mx-auto mb-4 w-14 h-14 rounded-full flex items-center justify-center"
+      <div class="counter mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold transition transform duration-300 hover:scale-105"
+           data-count="6"
            style="background:var(--primary);color:white">
-        📜
+        0
       </div>
       <h3 class="font-semibold" style="color:var(--text)">
         Professional Certifications
       </h3>
       <p class="mt-2 text-sm" style="color:var(--muted)">
-        eJPT, CompTIA Security+, ITILv4, Cisco CCNA, Blue Team Level 1, TryHackMe & more.
+        Security+, eJPT, CCD, ITILv4, CCNA, Blue Team Level 1.
       </p>
     </div>
 
   </div>
 </section>
 
+  
   <!-- CTFs & Labs -->
   <section id="labs" class="max-w-7xl mx-auto p-6">
     <div class="flex items-end justify-between gap-4 flex-wrap">
