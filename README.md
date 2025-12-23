@@ -7,10 +7,11 @@
 - ✅ EC-Council Certified SOC Analyst (CSA)  
 - ✅ eLearnSecurity Junior Penetration Tester (eJPT)  
 - ✅ Cisco CCNA
-- ✅ Certified CyberDefender (CCD) 
+- ✅ Certified CyberDefender (CCD)
+- ✅ Certified Threat Hunting Professional (eCTHP) 
 
 **In Progress:**  
-- ⏳ eLearnSecurity Blue team certificates
+- ⏳ Certified Incident Responder Professional ( eCIR )
 - ⏳ Project - Build Elastic (ELK) Stack SIEM and Threat Detection Tools and more!
   
 ## Projects  
@@ -21,7 +22,7 @@
 - Achieved/completed more than 10 investigations across Blue Team Labs.  
 🔗 [Portfolio](https://ghassanalnomani.github.io/cybersecurity-portfolio/)
 
-- Achieved/completed CyberDefenders labs as part of my ongoing learning journey.  
+- Achieved/completed CyberDefenders +50 labs as part of my ongoing learning journey.  
 🔗 [Portfolio](https://ghassanalnomani.github.io/cybersecurity-portfolio/) | <!--[Labs](https://github.com/GhassanALNomani/cybersecurity-portfolio/tree/master/Labs/Certified%20CyberDefenders%20(CCD))-->
 
 
